@@ -1,0 +1,19 @@
+<p>{{cart}}</p>
+<ul>
+    <li *ngFor="let product of cart">
+        {{product.name}}
+    </li>
+</ul>
+
+
+
+    <button
+    type="submit"
+    class="badge badge-success mb-2"
+    (click)="checkOut()"
+  >
+    CheckOut
+  </button>
+
+   
+ 

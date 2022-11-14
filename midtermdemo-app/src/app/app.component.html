@@ -1,0 +1,43 @@
+<header class="header">
+  <h1 class="logo"><a href="#">Ecommerce</a></h1>
+  <ul class="main-nav" routerLinkActive="active">
+    <li class="nav-item">
+      <a href="/home" class="nav-link" routerLink="home">Home </a>
+    </li>
+    <li class="nav-item" *ngIf="showAdminBoard">
+      <a href="/admin" class="nav-link" routerLink="admin" >Admin Board </a>
+    </li>
+    <li class="nav-item">
+      <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
+    </li>
+    <li class="nav-item" *ngIf="showAdminBoard">
+      <a routerLink="products" class="nav-link" >Products</a>
+    </li>
+    <li class="nav-item" *ngIf="isLoggedIn">
+      <a routerLink="productsU" class="nav-link">Product Catalog</a>
+    </li>
+    <li class="nav-item" *ngIf="isLoggedIn">
+      <a routerLink="cart" class="nav-link">Cart</a>
+    </li>
+    <li class="nav-item" *ngIf="showAdminBoard">
+      <a routerLink="users" class="nav-link">Users</a>
+    </li>
+    <li class="nav-item" *ngIf="showAdminBoard">
+      <a routerLink="add" class="nav-link">Add</a>
+    </li>
+  </ul>
+
+   <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+    <li class="nav-item">
+      <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+    </li>
+    <li class="nav-item">
+      <a href class="nav-link" (click)="logout()">LogOut</a>
+    </li>
+  </ul>
+</header> 
+
+
+    <router-outlet></router-outlet>
+
+

@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "postcss-import": "^15.0.0"
+  },
+  "dependencies": {
+    "postcss-font-variant": "^5.0.0"
+  }
+}
