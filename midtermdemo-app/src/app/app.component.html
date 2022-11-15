@@ -1,7 +1,7 @@
 <header class="header">
   <h1 class="logo"><a href="#">Ecommerce</a></h1>
   <ul class="main-nav" routerLinkActive="active">
-    <li class="nav-item">
+    <li class="nav-item" *ngIf="isLoggedIn">
       <a href="/home" class="nav-link" routerLink="home">Home </a>
     </li>
     <li class="nav-item" *ngIf="showAdminBoard">
@@ -31,13 +31,12 @@
     <li class="nav-item">
       <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
     </li>
+    <li class="nav-item">&nbsp;|&nbsp;</li>
     <li class="nav-item">
-      <a href class="nav-link" (click)="logout()">LogOut</a>
+      <a href class="nav-link" (click)="logout()">Logout&nbsp;&nbsp;&nbsp;&nbsp;</a>
     </li>
   </ul>
 </header> 
-
-
-    <router-outlet></router-outlet>
+<router-outlet></router-outlet>
 
 

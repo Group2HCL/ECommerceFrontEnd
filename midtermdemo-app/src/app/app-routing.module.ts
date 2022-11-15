@@ -17,7 +17,7 @@ import { ProductsListComponentUser } from './Components/products-list-user/produ
 import { CartComponent } from './Components/cart/cart.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'products', component: ProductsListComponent },
   { path: 'products/:id', component: ProductDetailsComponent },
   { path: 'add', component: AddProductComponent },
@@ -25,6 +25,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login/register', redirectTo: 'register'},
+  { path: 'register/login', redirectTo: 'login'},
+  { path: 'home/register', redirectTo: 'register'},
   { path: 'profile', component: ProfileComponent },
   { path: 'user', component: BoardUserComponent },
   { path: 'admin', component: BoardAdminComponent },
