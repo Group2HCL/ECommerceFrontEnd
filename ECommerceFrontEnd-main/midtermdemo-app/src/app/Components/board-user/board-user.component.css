@@ -1,0 +1,20 @@
+div#form {
+    padding: 35px;
+    color: #2D2B28;
+    background-attachment: scroll;
+    background: #1c1e21 url(https://images.pexels.com/photos/4458386/pexels-photo-4458386.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+    background-position: center center;
+    background-repeat: none;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+  min-height:100%;
+
+}
+
+div#background {
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
