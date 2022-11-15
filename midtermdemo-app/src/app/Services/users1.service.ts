@@ -4,12 +4,18 @@ import {Observable} from 'rxjs';
 import {Users} from '../Models/users1.model';
 
 const baseUrl = 'http://localhost:8181/api/User/users';
+const rolesUrl = 'http://localhost:8181/api/roles'
+
 
 @Injectable({
     providedIn: 'root'
 })
 export class UsersService {
     constructor(private http: HttpClient) { }
+
+    adminToggle(id: any): Observable<any> {
+        return this.http.get(`${rolesUrl}/toggle/${id}`);
+    }
 
     getAll(): Observable<Users[]> {
         return this.http.get<Users[]>(baseUrl);
