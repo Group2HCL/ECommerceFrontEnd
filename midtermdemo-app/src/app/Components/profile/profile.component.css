@@ -1,0 +1,15 @@
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 20px;
+  }
+
+  .body{background: rgb(74, 166, 189)}
+  .form-control:focus{box-shadow: none;border-color: rgb(4, 166, 189)}
+  .profile-button{background: rgb(74, 166, 189);box-shadow: none;border: none}
+  .profile-button:hover{background: rgb(4, 166, 189)}
+  .profile-button:focus{background: rgb(4, 166, 189);box-shadow: none}
+  .profile-button:active{background: rgb(4, 166, 189);box-shadow: none}
+  .back:hover{color: rgb(4, 166, 189);cursor: pointer}
+  .labels{font-size: 11px}
+  .border{ border: 3px solid gray; border-radius:10px;  padding-top: 10px ;}
