@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSlideToggleModule,  } from '@angular/material/slide-toggle';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductsListComponent } from './Components/products-list/products-list.component';
@@ -20,6 +18,9 @@ import { UserDetailsComponent } from './Components/user-details/user-details.com
 import { UserListComponent } from './Components/user-list/user-list.component';
 import { ProductDetailsComponentUser } from './Components/product-details-user/product-details.component';
 import { ProductsListComponentUser } from './Components/products-list-user/products-list.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import{MatInputModule} from '@angular/material/input';
 
 import { authInterceptorProviders } from './Helper/auth.interceptor';
 import { CartComponent } from './Components/cart/cart.component';
@@ -50,6 +51,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     BrowserAnimationsModule,
     MatSlideToggleModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {Products} from '../Models/products.model';
 
 const baseUrl = 'http://localhost:8181/api/Product/products';
-const ADD_API = "http://localhost:8181/api/ShoppingCart/shoppingCart/addProduct";
+const ADD_API = 'http://localhost:8181/api/ShoppingCart/addProduct';
 
 @Injectable({
     providedIn: 'root'
@@ -40,7 +40,8 @@ export class ProductsService {
         return this.http.get<Products[]>(`${baseUrl}?name=${name}`);
       }
 
-    addToCart(id: any) {
+    addToCart(id: any): void {
+        console.log("sending request to " + `${ADD_API}/${id}`)
         this.http.get(`${ADD_API}/${id}`);
       }
 }
