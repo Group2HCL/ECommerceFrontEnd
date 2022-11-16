@@ -59,6 +59,11 @@ export class ProductDetailsComponent implements OnInit {
       });
   }
 
+  addProduct(id: string): void {
+    this.productService.addToCart(this.currentProduct.id)
+
+  }
+
   deleteProduct(): void {
     this.productService.delete(this.currentProduct.id)
       .subscribe({
