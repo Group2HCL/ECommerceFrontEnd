@@ -25,6 +25,7 @@ import{MatInputModule} from '@angular/material/input';
 import { authInterceptorProviders } from './Helper/auth.interceptor';
 import { CartComponent } from './Components/cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { OrdersComponent } from './Components/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UserListComponent,
     ProductDetailsComponentUser,
     ProductsListComponentUser,
-    CartComponent
+    CartComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

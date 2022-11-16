@@ -15,6 +15,7 @@ import { UserListComponent } from './Components/user-list/user-list.component';
 import { ProductDetailsComponentUser } from './Components/product-details-user/product-details.component';
 import { ProductsListComponentUser } from './Components/products-list-user/products-list.component';
 import { CartComponent } from './Components/cart/cart.component';
+import { OrdersComponent } from './Components/orders/orders.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -34,7 +35,8 @@ const routes: Routes = [
   {path: 'users/:id', component: UserDetailsComponent},
   {path: 'productsU', component: ProductsListComponentUser},
   {path: 'productsU/:id', component: ProductDetailsComponentUser},
-  {path: 'cart', component: CartComponent}
+  {path: 'cart', component: CartComponent},
+  {path: 'orders', component: OrdersComponent}
 ];
 
 @NgModule({
