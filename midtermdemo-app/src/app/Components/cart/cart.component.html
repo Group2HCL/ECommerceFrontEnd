@@ -1,12 +1,7 @@
-<p>{{cart}}</p>
 <ul>
-    <li *ngFor="let product of cart">
-        {{product.name}}
-    </li>
+  <li ng-repeat="x in cart.items">{{cart.items}}</li>
 </ul>
-
-
-
+<p>{{cart}}</p>
     <button
     type="submit"
     class="badge badge-success mb-2"
