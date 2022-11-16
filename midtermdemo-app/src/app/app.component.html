@@ -1,41 +1,53 @@
 <header class="header">
-  <h1 class="logo"><a href="#">Ecommerce</a></h1>
+  <h1 class="logo"><a  routerLink="/home" href="#">Ecommerce</a></h1>
   <ul class="main-nav" routerLinkActive="active">
 
     <li class="nav-item" *ngIf="isLoggedIn">
-      <a href="/home" class="nav-link" routerLink="home"> Home </a> <!-- Check Brandon's icon src -->
+      <a routerLink="/home" class="nav-link" routerLink="home"><i class="fa-solid fa-house"></i></a> <!-- Check Brandon's icon src -->
     </li>
-    <li class="nav-item dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false" *ngIf="showAdminBoard">
-        Admin Links
-      </button>
-      <div class="dropdown-menu nav-link" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item nav-link" routerLink="products" href="#">Products</a>
-        <a class="dropdown-item nav-link" routerLink="users" href="#">User List</a>
-      </div>
-    </li>
+    
     <li class="nav-item">
       <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
     </li>
     <li class="nav-item" *ngIf="isLoggedIn">
-      <a routerLink="productsU" class="nav-link">Product Catalog</a>
+      <a routerLink="productsU" class="nav-link"><i class ="fa-solid fa-shop"></i></a>
     </li>
-    <li class="nav-item" *ngIf="isLoggedIn">
-      <a routerLink="cart" class="nav-link">Cart</a>
-    </li>
-    <li class="nav-item" *ngIf="showAdminBoard">
-      <a routerLink="users" class="nav-link">Users</a>
+    
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role = "button"
+        aria-haspopup="true" aria-expanded="false" *ngIf="showAdminBoard">
+        Admin Links
+    </a>
+      <div class="dropdown-menu nav-link">
+        <a class="dropdown-item nav-link" routerLink="products" href="#">Products</a>
+        <a class="dropdown-item nav-link" routerLink="users" href="#">User List</a>
+        <a class="dropdown-item nav-link" routerLink="add" href="#">Add Product</a>
+      </div>
     </li>
   </ul>
 
   <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-    <li class="nav-item">
-      <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+    <li class="nav-item" *ngIf="isLoggedIn">
+      <a routerLink="cart" class="nav-link"><i class="fa-solid fa-cart-shopping"></i></a>
     </li>
     <li class="nav-item">&nbsp;|&nbsp;</li>
+
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role = "button"
+        aria-haspopup="true" aria-expanded="false" *ngIf="showAdminBoard">
+        {{ username }}
+    </a>
+    <div class="dropdown-menu nav-link">
+      <a class="dropdown-item nav-link" routerLink="profile" href="#"> User Profile </a>
+      <br/>
+      <a class="dropdown-item nav-link" routerLink="orders" href="#"> Orders </a>
+    </div>
+     <!-- <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a> -->
+    </li>
+
+    <li class="nav-item">&nbsp;|&nbsp;</li>
     <li class="nav-item">
-      <a href class="nav-link" (click)="logout()">Logout&nbsp;&nbsp;&nbsp;&nbsp;</a>
+     <a class="nav-link" routerLink ="home" (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
     </li>
   </ul>
 </header>
