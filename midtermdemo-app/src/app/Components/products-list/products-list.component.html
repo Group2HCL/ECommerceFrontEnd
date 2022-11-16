@@ -1,13 +1,28 @@
 <div class="list row">
   <div class="col-md-8">
     <div class="input-group mb-3">
+      <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Number</mat-label>
+          <input type="text"
+                 placeholder="Pick one"
+                 aria-label="Name"
+                 matInput                 
+                 [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
 
-      <input type="text" class="form-control" placeholder="Search by name" [(ngModel)]="name"/>
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" (click)="searchName()">
-            Search
-          </button>
-        </div>
+    <!----  <input type="text" class="form-control" placeholder="Search by name" [(ngModel)]="name"/>
+       <div class="input-group-append">
+      /    <button class="btn btn-outline-secondary" (click)="searchName()">
+       //      Search
+         </button>
+      </div>-->
 
       </div>
     </div>
