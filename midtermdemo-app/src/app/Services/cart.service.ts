@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs';
 import { Products } from '../Models/products.model';
+import { cartContents } from '../Models/cartcontents.model';
 
 const CART_API = "http://localhost:8181/api/ShoppingCart/shoppingCart";
 const PRICE_API = "http://localhost:8181/api/ShoppingCart/shoppingCart/price";
@@ -16,8 +17,9 @@ export class CartService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getCart(): Observable<Products[]> {
-    return this.httpClient.get<Products[]>(CART_API);
+  getCart(): Observable<cartContents[]> {
+    console.log("Injectable active")
+    return this.httpClient.get<cartContents[]>(CART_API);
 }
 
   public addToCart(id: any){
@@ -35,4 +37,5 @@ export class CartService {
   public getCheckout(){
     return this.httpClient.get(CHECKOUT_API);
   }
+
 }

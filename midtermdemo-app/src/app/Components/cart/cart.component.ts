@@ -1,6 +1,9 @@
 import { Component,Input, OnInit } from '@angular/core';
 import { CartService } from 'src/app/Services/cart.service';
 import { Products } from 'src/app/Models/products.model';
+import {Cart} from 'src/app/Models/cart.model';
+import { cartContents } from 'src/app/Models/cartcontents.model';
+import {Observable} from 'rxjs';
 
 
 @Component({
@@ -9,16 +12,28 @@ import { Products } from 'src/app/Models/products.model';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-
-   cart: any;
+  cart: Cart={};
    
-  constructor(private cartService: CartService) { }
-
-  ngOnInit(): void {
-   this.cart = this.cartService.getCart();
+  constructor(private cartService: CartService) {  }
+ 
+  ngOnInit(): void { 
+    console.log("ran in contructor")
+  this.retrieveCartContents();  
+ 
+     }
     
-  }
+  
 
+  retrieveCartContents(): void {    
+    this.cartService.getCart()
+      .subscribe({
+        next: (data) => {
+          this.cart.items = data;
+          console.log(data);
+        },
+        error: (e) => console.error(e)
+      });
+  }
  
 
   

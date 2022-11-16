@@ -60,6 +60,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addProduct(id: string): void {
+    console.log("Adding item " + this.currentProduct.id)
     this.productService.addToCart(this.currentProduct.id)
 
   }

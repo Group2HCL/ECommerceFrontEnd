@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Products } from 'src/app/Models/products.model';
 import { ProductsService } from 'src/app/Services/products.service';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
 
 @Component({
@@ -14,13 +17,39 @@ export class ProductsListComponent implements OnInit {
   currentProduct: Products = {};
   currentIndex = -1;
   name = '';
+  myControl = new FormControl('');
+  options: string[] = this.getAllProductNames();
+  filteredOptions?: Observable<string[]>;
+  
+
 
   constructor(private productsService: ProductsService) { }
 
   ngOnInit(): void {
     this.retrieveProducts();
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value || '')),
+    );
   }
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
 
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  }
+  getAllProductNames(): string[] {
+   let newish:string[]=[""];
+    this.productsService.getAll()
+      .subscribe({
+        next: (data) => {
+           newish.push(data.values.name);
+          console.log(data);
+        }, 
+        error: (e) => console.error(e)
+      });
+      return newish;
+
+  }
   retrieveProducts(): void {
     this.productsService.getAll()
       .subscribe({
