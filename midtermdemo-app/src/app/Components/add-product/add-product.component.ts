@@ -13,7 +13,8 @@ export class AddProductComponent {
         category: '',
         price: 0,
         stock: 0,
-        description: ''
+        description: '',
+        image: ''
     };
     submitted = false;
 
@@ -25,7 +26,8 @@ export class AddProductComponent {
             category: this.product.category,
             price: this.product.price,
             stock: this.product.stock,
-            description: this.product.description
+            description: this.product.description,
+            image: this.product.image
         };
 
         this.productsService.create(data)
@@ -45,7 +47,8 @@ export class AddProductComponent {
             category: '',
             price: 0,
             stock: 0,
-            description: ''
+            description: '',
+            image: ''
         };
     }
 }

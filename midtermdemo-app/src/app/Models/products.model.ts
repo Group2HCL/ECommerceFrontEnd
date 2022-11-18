@@ -4,6 +4,7 @@ name?: string;
 category?: string;
 price?: number;
 stock?: number;
-description?: any;
+description?: string;
+image?: string;
 
 }

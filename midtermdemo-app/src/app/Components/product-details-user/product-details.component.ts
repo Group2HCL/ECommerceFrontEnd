@@ -17,7 +17,8 @@ export class ProductDetailsComponentUser implements OnInit {
     category: '',
     price: 0,
     stock: 0,
-    description: ''
+    description: '',
+    image: ''
   };
   
   message = '';
