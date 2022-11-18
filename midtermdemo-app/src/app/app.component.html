@@ -32,9 +32,9 @@
     </li>
     <li class="nav-item">&nbsp;|&nbsp;</li>
 
-    <li class="nav-item dropdown">
+    <li class="nav-item dropdown" style = "width:50px; text-align: center;">
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role = "button"
-        aria-haspopup="true" aria-expanded="false" *ngIf="showAdminBoard">
+        aria-haspopup="true" aria-expanded="false" *ngIf="isLoggedIn">
         {{ username }}
     </a>
     <div class="dropdown-menu nav-link">

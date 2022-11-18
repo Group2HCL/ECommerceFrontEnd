@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSlideToggleModule,  } from '@angular/material/slide-toggle';
 import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ProductsListComponent } from './Components/products-list/products-list.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
@@ -55,7 +56,8 @@ import { OrdersComponent } from './Components/orders/orders.component';
     MatSlideToggleModule,
     MatAutocompleteModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule, 
+    ReactiveFormsModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
