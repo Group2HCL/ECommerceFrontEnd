@@ -27,12 +27,14 @@
     <button
     type="submit"
     class="badge badge-success mb-2"
-    (click)="addProduct(currentProduct.id)"
+    (click)="addProduct(currentProduct)"
   >
     Add to Cart
   </button>
+
+  <button type="submit" class="badge badge-warning" (click)="this.removeProduct(currentProduct)">
+  Remove from cart</button>
   </div>
-  
 
   <div *ngIf="!currentProduct">
     <br />
