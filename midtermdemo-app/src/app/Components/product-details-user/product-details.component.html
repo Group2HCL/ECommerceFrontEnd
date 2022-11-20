@@ -17,6 +17,14 @@
       <label><strong>Description:</strong></label>
       {{ currentProduct.description }}
     </div>
+    <div>
+      <label><strong>Image:</strong></label> <br />
+     <!-- {{ currentProduct.image }} -->
+    </div>
+      <img src={{currentProduct.image}} class="img1" alt={{currentProduct.description}} >
+    <br/>
+    <br/>
+    
 
     <a
       class="badge badge-warning"
@@ -27,12 +35,14 @@
     <button
     type="submit"
     class="badge badge-success mb-2"
-    (click)="addProduct(currentProduct.id)"
+    (click)="addProduct(currentProduct)"
   >
     Add to Cart
   </button>
+
+  <button type="submit" class="badge badge-warning" (click)="this.removeProduct(currentProduct)">
+  Remove from cart</button>
   </div>
-  
 
   <div *ngIf="!currentProduct">
     <br />
@@ -95,6 +105,17 @@
           id="description"
           [(ngModel)]="currentProduct.description"
           name="description"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="image">image</label>
+        <input
+          type="text"
+          class="form-control"
+          id="image"
+          [(ngModel)]="currentProduct.image"
+          name="image"
         />
       </div>
     </form>

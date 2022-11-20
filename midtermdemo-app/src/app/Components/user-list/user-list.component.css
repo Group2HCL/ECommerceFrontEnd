@@ -3,3 +3,7 @@
     max-width: 750px;
     margin: auto;
   }
+
+  .btn-outline-secondary{
+    background-image: linear-gradient(rgba(60,145,255,1) 50%, rgba(95,30,190,1) );
+  }

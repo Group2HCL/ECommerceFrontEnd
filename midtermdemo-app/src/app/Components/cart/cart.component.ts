@@ -2,8 +2,10 @@ import { Component,Input, OnInit } from '@angular/core';
 import { CartService } from 'src/app/Services/cart.service';
 import { Products } from 'src/app/Models/products.model';
 import {Cart} from 'src/app/Models/cart.model';
-import { cartContents } from 'src/app/Models/cartcontents.model';
+import {cartContents } from 'src/app/Models/cartcontents.model';
 import {Observable} from 'rxjs';
+import { ProductsService } from 'src/app/Services/products.service';
+import { OrderService } from 'src/app/Services/order.service';
 
 
 @Component({
@@ -12,40 +14,34 @@ import {Observable} from 'rxjs';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  cart: Cart={};
+  productList ?: Products[];
+  cartProductList: any = this.cartService.cartContents;
    
-  constructor(private cartService: CartService) {  }
+  constructor(private cartService: CartService, private productsService: ProductsService, private orderService: OrderService) {  }
  
   ngOnInit(): void { 
-    console.log("ran in contructor")
-  this.retrieveCartContents();  
- 
+    this.retrieveProducts
+    this.cartProductList=this.cartService.cartContents
+    console.log(this.cartProductList)  
      }
     
+     retrieveProducts(): void {
+      let item:any;
+      this.productsService.getAll()
+        .subscribe({
+          next: (data) => {
+            this.productList = data;
+          },
+          error: (e) => console.error(e)
+        });
+    }  
+    createOrder(cart: any): void{
+      console.log("Local component order called")
+      this.orderService.createOrder(cart).subscribe(
+        res=> {console.log(res);}
+      );
+    }
   
-
-  retrieveCartContents(): void {    
-    this.cartService.getCart()
-      .subscribe({
-        next: (data) => {
-          this.cart.items = data;
-          console.log(data);
-        },
-        error: (e) => console.error(e)
-      });
-  }
- 
-
-  
-  checkOut(): void {
-    this.cartService.getCheckout()
-    .subscribe({
-      next: (res: any) => {
-        console.log(res);
-        console.log("Checked Out");
-      },
-      error: (e) => console.error(e)
-    });
+     
   }
 
-}

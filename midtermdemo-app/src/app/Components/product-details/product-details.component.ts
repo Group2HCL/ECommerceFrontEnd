@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/Services/products.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Products } from 'src/app/Models/products.model';
+import { CartService } from 'src/app/Services/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -17,7 +18,8 @@ export class ProductDetailsComponent implements OnInit {
     category: '',
     price: 0,
     stock: 0,
-    description: ''
+    description: '',
+    image: ''
   };
   
   message = '';
@@ -25,9 +27,11 @@ export class ProductDetailsComponent implements OnInit {
   constructor(
     private productService: ProductsService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private cartService:CartService) { }
 
   ngOnInit(): void {
+   
     if (!this.viewMode) {
       this.message = '';
       this.getProduct(this.route.snapshot.params["id"]);
@@ -61,7 +65,7 @@ export class ProductDetailsComponent implements OnInit {
 
   addProduct(id: string): void {
     console.log("Adding item " + this.currentProduct.id)
-    this.productService.addToCart(this.currentProduct.id)
+    this.cartService.addToCart(this.currentProduct.id)
 
   }
 

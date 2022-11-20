@@ -28,4 +28,12 @@ export class AuthService {
       password
     }, httpOptions);
   }
+
+  verify(username: any, password: any ): Observable<any> {
+    return this.http.post(AUTH_API + 'verifypw', {
+      username, password
+    },  
+
+      )
+  }
 }
