@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/Services/products.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Products } from 'src/app/Models/products.model';
+import { CartComponent } from '../cart/cart.component';
+import { CartService } from 'src/app/Services/cart.service';
 
 @Component({
   selector: 'app-product-details-user',
@@ -20,15 +22,19 @@ export class ProductDetailsComponentUser implements OnInit {
     description: '',
     image: ''
   };
-  
+  isPresent: boolean= false;
   message = '';
 
   constructor(
     private productService: ProductsService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    protected cartService: CartService) { }
 
   ngOnInit(): void {
+    if(this.cartService.cartContents.includes(this.currentProduct)){
+      this.isPresent=true;
+    }
     if (!this.viewMode) {
       this.message = '';
       this.getProduct(this.route.snapshot.params["id"]);
@@ -60,9 +66,11 @@ export class ProductDetailsComponentUser implements OnInit {
       });
   }
 
-  addProduct(id: string): void {
-    this.productService.addToCart(this.currentProduct.id)
-
+  addProduct(id: any): void {
+    this.cartService.addToCart(this.currentProduct)
+  }
+  removeProduct(id: any): void{
+    this.cartService.removeFromCart(this.currentProduct)
   }
 
   deleteProduct(): void {
