@@ -5,6 +5,7 @@ import {Cart} from 'src/app/Models/cart.model';
 import {cartContents } from 'src/app/Models/cartcontents.model';
 import {Observable} from 'rxjs';
 import { ProductsService } from 'src/app/Services/products.service';
+import { OrderService } from 'src/app/Services/order.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class CartComponent implements OnInit {
   productList ?: Products[];
   cartProductList: any = this.cartService.cartContents;
    
-  constructor(private cartService: CartService, private productsService: ProductsService) {  }
+  constructor(private cartService: CartService, private productsService: ProductsService, private orderService: OrderService) {  }
  
   ngOnInit(): void { 
     this.retrieveProducts
@@ -34,7 +35,13 @@ export class CartComponent implements OnInit {
           error: (e) => console.error(e)
         });
     }  
-   
+    createOrder(cart: any): void{
+      console.log("Local component order called")
+      this.orderService.createOrder(cart).subscribe(
+        res=> {console.log(res);}
+      );
+    }
+  
      
-   }
+  }
 
