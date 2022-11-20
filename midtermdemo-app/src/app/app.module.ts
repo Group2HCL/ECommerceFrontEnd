@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSlideToggleModule,  } from '@angular/material/slide-toggle';
 import { AppRoutingModule } from './app-routing.module';
@@ -58,6 +58,7 @@ import { OrdersComponent } from './Components/orders/orders.component';
     MatFormFieldModule,
     MatInputModule, 
     ReactiveFormsModule
+
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

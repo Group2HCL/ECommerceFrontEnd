@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Products } from 'src/app/Models/products.model';
 import { ProductsService } from 'src/app/Services/products.service';
-import {FormControl} from '@angular/forms';
+import {FormControl, ReactiveFormsModule} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { __values } from 'tslib';
 
 
 @Component({
@@ -17,45 +18,46 @@ export class ProductsListComponent implements OnInit {
   currentProduct: Products = {};
   currentIndex = -1;
   name = '';
-  myControl = new FormControl('');
-  options: string[] = this.getAllProductNames();
-  filteredOptions?: Observable<string[]>;
-  
+  carrier?:Products[];
+  myControl = new FormControl('');  
+  filteredOptions?:Observable<string[]>;
+  options:string[];
 
 
-  constructor(private productsService: ProductsService) { }
+  constructor(private productsService: ProductsService, ) {
+    this.options=[];
+   }
 
   ngOnInit(): void {
-    this.retrieveProducts();
+  this.retrieveProducts();
+  // this.options=this.getAllProductNames();
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value || '')),
     );
+    console.log("product print" +this.products)
   }
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
-  getAllProductNames(): string[] {
-   let newish:string[]=[""];
-    this.productsService.getAll()
-      .subscribe({
-        next: (data) => {
-           newish.push(data.values.name);
-          console.log(data);
-        }, 
-        error: (e) => console.error(e)
-      });
-      return newish;
-
-  }
+  //getAllProductNames(): string[] { 
+  
+  //}
+  
+  
   retrieveProducts(): void {
+    let item:any;
     this.productsService.getAll()
       .subscribe({
         next: (data) => {
           this.products = data;
+          this.carrier=data;
           console.log(data);
+          for(let item in data){
+              this.options.push(item);
+          } 
         },
         error: (e) => console.error(e)
       });
