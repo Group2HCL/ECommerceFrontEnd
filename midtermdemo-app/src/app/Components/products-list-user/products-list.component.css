@@ -1,4 +1,27 @@
 .list {
+  text-align: left;
+  max-width: 750px;
+  margin: auto;
+}
+
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 2rem
+}
+
+
+.border {
+  border: #57bbc1;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 2px;
+  padding: 15px;
+  margin: 20px
+}
+
+.btnhov:hover {
+  background-color: #57bbc1;
     text-align: left;
     max-width: 750px;
     margin: auto;
