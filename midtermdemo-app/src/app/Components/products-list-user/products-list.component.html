@@ -3,7 +3,7 @@
     <p class="lead text-muted"> Extensive list of the latest products. New inventory added daily! </p>
 </section>
 
-<div class="container col-md-5 input-group" style="width: 65%">
+<div class="container col-md-5 input-group" style="width: 50%">
   <input type="text" style="height: 42px" class="form-control" placeholder="Search by product name"
     [(ngModel)]="name" />
   <span class="input-group-addon">
@@ -12,11 +12,10 @@
 </div>
 
 <div *ngFor=" let product of products; let i=index" [class.active]="i == currentIndex">
-    <div class="col-md-4 " >
+    <div class="col-md-3" >
       <div class="card mb-4 border">
         <!-- Product Image -->
-        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
-          alt="Card image cap">
+        <img class="card-img-top" data-src= {{product.image}}>
         <div class="card-body">
           <ul class="list-group">
             <li class="list-group-item">
