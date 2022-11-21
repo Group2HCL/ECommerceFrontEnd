@@ -1,14 +1,8 @@
+<div>
 <ul>
-  <li ng-repeat="x in cart.items">{{cart.items}}</li>
+  <li *ngFor="let product of this.cartProductList; let i = index">{{this.cartProductList[i].name +" "+
+                                                                    this.cartProductList[i].price.toLocaleString("en-US", {style: 'currency', currency: 'USD'})+ " " + 
+                                                                    this.cartProductList[i].num}}</li>
 </ul>
-<p>{{cart}}</p>
-    <button
-    type="submit"
-    class="badge badge-success mb-2"
-    (click)="checkOut()"
-  >
-    CheckOut
-  </button>
-
-   
- 
+<button type="submit" (click)="this.createOrder(this.cartProductList)">Order Now</button>
+</div>

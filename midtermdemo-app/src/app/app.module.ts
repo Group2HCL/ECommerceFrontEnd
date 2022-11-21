@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSlideToggleModule,  } from '@angular/material/slide-toggle';
 import { AppRoutingModule } from './app-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ProductsListComponent } from './Components/products-list/products-list.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
@@ -22,7 +21,6 @@ import { ProductsListComponentUser } from './Components/products-list-user/produ
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import{MatInputModule} from '@angular/material/input';
-import {MatDialogModule } from '@angular/material/dialog';
 
 
 import { authInterceptorProviders } from './Helper/auth.interceptor';
@@ -59,8 +57,7 @@ import { OrdersComponent } from './Components/orders/orders.component';
     MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule, 
-    ReactiveFormsModule, 
-    MatDialogModule
+    ReactiveFormsModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

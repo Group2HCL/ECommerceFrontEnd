@@ -8,6 +8,7 @@
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Number</mat-label>
           <input type="text" placeholder="Pick one" aria-label="Name" matInput [matAutocomplete]="auto">
+
           <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
               {{option}}
@@ -39,7 +40,6 @@
   <button class="m-3 btn btn-sm btn-danger" (click)="removeAllProducts()">
     Remove All
   </button>
-
   <a href="/add" class="m-3 btn btn-sm btn-primary">
     Create Product </a>
 </div>
