@@ -6,5 +6,6 @@ price?: number;
 stock?: number;
 description?: any;
 num?: number;
+image?: string;
 
 }
