@@ -15,20 +15,19 @@
     <div class="col-md-3" >
       <div class="card mb-4 border">
         <!-- Product Image -->
-        <img class="card-img-top" data-src= {{product.image}}>
+        <img class="card-img-top" src= {{product.image}}>
         <div class="card-body">
           <ul class="list-group">
-            <li class="list-group-item">
-              <p class="card-text"> {{product.name}} </p>
+            <li class="list-group-item card-border">
+              <p class="card-text"> <strong> {{product.name}} </strong> </p>
             </li>
+            <br>
             {{product.price | currency: 'USD'}}
-            <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
                 <button type="button" class="btn btnhov btn-sm btn-outline-secondary" (click)="setActiveProduct(product, i)">
                   View</button>
-                <button type="button" class="btn btnhov btn-sm btn-outline-secondary"> Add to Cart </button>
+                <!--<button type="button" class="btn btnhov btn-sm btn-outline-secondary"     (click)="addProduct(product)"> Add to Cart </button> -->
               </div>
-            </div>
           </ul>
         </div>
       </div>

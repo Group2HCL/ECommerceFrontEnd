@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Products } from 'src/app/Models/products.model';
+import { CartService } from 'src/app/Services/cart.service';
 import { ProductsService } from 'src/app/Services/products.service';
 
 @Component({
@@ -13,11 +14,17 @@ export class ProductsListComponentUser implements OnInit {
   currentProduct: Products = {};
   currentIndex = -1;
   name = '';
+  cartProductList: Products[] = this.cartService.cartContents;
 
-  constructor(private productsService: ProductsService) { }
+
+
+  constructor(private productsService: ProductsService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.retrieveProducts();
+    this.cartProductList = this.cartService.cartContents
+
+
   }
 
   retrieveProducts(): void {
@@ -35,6 +42,10 @@ export class ProductsListComponentUser implements OnInit {
     this.retrieveProducts();
     this.currentProduct = {};
     this.currentIndex = -1;
+  }
+
+  addProduct(id: any): void {
+    this.cartService.addToCart(this.currentProduct)
   }
 
   setActiveProduct(product: Products, index: number): void {

@@ -80,4 +80,8 @@ export class ProductDetailsComponent implements OnInit {
       });
   }
 
+  back() {
+    this.router.navigateByUrl('/products');
+  }
+
 }
