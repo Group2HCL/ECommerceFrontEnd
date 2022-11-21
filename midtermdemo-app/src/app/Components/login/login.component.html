@@ -5,7 +5,7 @@
       <div id="userform">
         <ul class="nav nav-tabs nav-justified" role="tablist">
           <li class="active"><a href="/login"  role="tab" data-toggle="tab" routerLink="login">Login</a></li>
-          <li><a class="nav-link" routerLink="register">Sign Up</a></li>
+          <li><a class="nav-link" routerLink="register"> Register</a></li>
         </ul>
         
         <div class="tab-content">
@@ -53,7 +53,7 @@
             </form>
 
             <div class="alert alert-success" *ngIf="isLoggedIn">
-              Logged in as {{ roles }}.
+              Welcome back {{ userN }}!
             </div>
 
           </div>

@@ -7,9 +7,8 @@ body, html {
 
 btn {
 	border-radius: 0
-
-  
 }
+
 .btn:focus, .btn:active, .btn.active, .btn:active:focus {
 	outline: 0;
   border-radius: 0
@@ -19,13 +18,13 @@ btn {
 
 .btn-larger {
 	padding: 15px 40px !important;
-	border:2px solid #3e8cdb !important;;
+	border:2px solid #5fcacf !important;;
 	border-radius: 0px !important;;
 	text-transform: uppercase;
 	font-family: 'Dosis', sans-serif;
 	font-size: 18px;
 	font-weight: 300;
-	color: #3e8cdb;
+	color: #5fcacf;
 	background-color: transparent;
 	-webkit-transition: all .6s;
 	-moz-transition: all .6s;
@@ -34,27 +33,27 @@ btn {
 
 }
 .btn-larger:hover, .btn-larger:focus, .btn-larger:active, .btn-larger.active, .open .dropdown-toggle.btn-larger {
-	border-color: #3e8cdb;
+	border-color: #459498;
 	color: #fff;
-	background-color: #3e8cdb;
+	background-color: #57bbc1;
   border-radius: 0
 }
 .btn-larger:active, .btn-larger.active, .open .dropdown-toggle.btn-larger {
 	background-image: none;
 }
 .btn-larger.disabled, .btn-larger[disabled], fieldset[disabled] .btn-larger, .btn-larger.disabled:hover, .btn-larger[disabled]:hover, fieldset[disabled] .btn-larger:hover, .btn-larger.disabled:focus, .btn-larger[disabled]:focus, fieldset[disabled] .btn-larger:focus, .btn-larger.disabled:active, .btn-larger[disabled]:active, fieldset[disabled] .btn-larger:active, .btn-larger.disabled.active, .btn-larger[disabled].active, fieldset[disabled] .btn-larger.active {
-	border-color: #AEA8D3;
-	background-color: #AEA8D3;
+	border-color: #5fcacf;
+	background-color: #5fcacf;
 }
 .btn-larger .badge {
-	color: #AEA8D3;
-	background-color: #fff;
+	color: #fff;
+	background-color: #5fcacf;
 }
 
 div#form {
-	color: #fff;
+	color: #a2a2a2;
 	background-attachment: scroll;
-	background: #1c1e21 url(https://images.pexels.com/photos/1648839/pexels-photo-1648839.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+	background: #dee0e3 url(https://images.pexels.com/photos/1648839/pexels-photo-1648839.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
 	background-position: center center;
 	background-repeat: none;
 	-webkit-background-size: cover;
@@ -75,24 +74,25 @@ div#form {
 	margin-bottom: 0px;
 }
 #userform {
-	background: rgba(0,0,0,0.8);
+	background: #dcd9d9;
+
 	margin: 20px 0 20px 0
 }
  @media (min-width: 768px) {
 #userform {
-	background: rgba(0,0,0,0.8);
+	background: #dcd9d9;
 	margin: 50px 0 20px 0
 }
 }
 #userform .nav-tabs.nav-justified > li > a {
 	text-transform: uppercase;
 	font-size: 20px;
-	color: #3e8cdb;
+	color: white;
 	background-color: rgba(90,90,90,0.5);
 }
 #userform .nav-tabs.nav-justified > .active > a, #userform .nav-tabs.nav-justified > .active > a:hover, #userform .nav-tabs.nav-justified > .active > a:focus {
 	border: 0;
-	background: #3e8cdb;
+	background: #5fcacf;
 	color: white;
 	border-radius: 0;
 }
@@ -103,7 +103,7 @@ div#form {
 	transition: all .6s;
 }
 #userform .nav-justified > li > a:hover {
-	background: #AEA8D3;
+	background: #5fcacf;
 	color: #FFF;
 }
 #userform .nav-tabs > li > a {
@@ -111,7 +111,7 @@ div#form {
 	border-radius: 0
 }
 #userform .nav-tabs.nav-justified > li > a:hover {
-	background: #3e8cdb;
+	background: #5fcacf;
 	color: #FFF;
 	border-radius: 0;
 	border: 0;
@@ -120,7 +120,7 @@ div#form {
 	transition: all .6s;
 }
 #userform .nav-tabs > li.active > a, #userform .nav-tabs > li.active > a:hover, #userform .nav-tabs > li.active > a:focus {
-	color: #3e8cdb;
+	color: #fff;
 	cursor: default;
 	background-color: transparent;
 	border: 0;
@@ -136,7 +136,7 @@ div#form {
 	transition: all .6s;
 }
 #userform .nav-tabs.nav-justified > li > a:hover {
-	background-color: #3e8cdb;
+	background-color: #57bbc1;
 	border-color: transparent;
 	border: 0;
 	-webkit-transition: all .6s;
@@ -155,7 +155,7 @@ div#form {
 }
 #userform .tab-pane h2 {
 	margin: 10px 0;
-	color: #FFF;
+	color: #a2a2a2;
 }
 #userform .tab-pane p.lead {
 	margin-top: 20px;
@@ -173,14 +173,14 @@ div#form {
 #userform .form-group input.form-control {
 	height: auto;
 	background-color: rgba(237, 235, 250, 0.1);
-	color: #FFF;
+	color: #a2a2a2;
 }
 #userform .form-control {
 	border-radius: 0;
 	border: 1px solid #fff;
 }
 #userform .form-control:focus {
-	border-color: #3e8cdb;
+	border-color: #5fcacf;
 	box-shadow: none;
 }
  #userform::-webkit-input-placeholder {
@@ -206,7 +206,7 @@ font-weight: 700;
 }
 #userform #signup .form-group label .req {
 	margin: 2px;
-	color: #3e8cdb;
+	color: #fff;
 }
 #userform #signup .form-group label.active {
 	-webkit-transform: translateY(0px);
@@ -238,7 +238,7 @@ font-weight: 700;
 }
 #userform #login .form-group label .req {
 	margin: 2px;
-	color: #3e8cdb;
+	color: #5fcacf;
 }
 #userform #login .form-group label.active {
 	-webkit-transform: translateY(0px);
