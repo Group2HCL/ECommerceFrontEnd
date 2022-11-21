@@ -1,14 +1,15 @@
 <header class="header">
-  <h1 class="logo"><a  routerLink="/home" href="#">Ecommerce</a></h1>
+  <h1 class="logo"><a  routerLink="/home" href="#">E-Z Shop</a></h1>
   <ul class="main-nav" routerLinkActive="active">
 
     <li class="nav-item" *ngIf="isLoggedIn">
       <a routerLink="/home" class="nav-link" routerLink="home"><i class="fa-solid fa-house"></i></a> <!-- Check Brandon's icon src -->
     </li>
-    
+    <!-- 
     <li class="nav-item">
       <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
     </li>
+    -->
     <li class="nav-item" *ngIf="isLoggedIn">
       <a routerLink="productsU" class="nav-link"><i class ="fa-solid fa-shop"></i></a>
     </li>
@@ -19,9 +20,8 @@
         Admin Links
     </a>
       <div class="dropdown-menu nav-link">
-        <a class="dropdown-item nav-link" routerLink="products" href="#">Products</a>
+        <a class="dropdown-item nav-link" routerLink="products" href="#">Product List</a>
         <a class="dropdown-item nav-link" routerLink="users" href="#">User List</a>
-        <a class="dropdown-item nav-link" routerLink="add" href="#">Add Product</a>
       </div>
     </li>
   </ul>

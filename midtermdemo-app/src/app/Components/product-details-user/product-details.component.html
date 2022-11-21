@@ -1,6 +1,5 @@
 <div *ngIf="viewMode; else editable">
   <div *ngIf="currentProduct.id">
-    <h4>Product</h4>
     <div>
       <label><strong>Name:</strong></label> {{ currentProduct.name }}
     </div>
@@ -119,4 +118,5 @@
     <p>Cannot access this Product...</p>
   </div>
 </ng-template>
-  
+
+

@@ -5,7 +5,7 @@
       <div id="userform">
         <ul class="nav nav-tabs nav-justified" role="tablist">
           <li *ngIf="!isLoggedIn"><a href="/login"  role="tab" data-toggle="tab" routerLink="login">Login</a></li>
-          <li class="active"><a href="/register" class="nav-link" routerLink="register">Sign Up</a></li>
+          <li class="active"><a href="/register" class="nav-link" routerLink="register"> Register</a></li>
         </ul>
         
         <div class="tab-content">
@@ -75,7 +75,7 @@
             </form>
 
             <div class="alert alert-success" *ngIf="isSuccessful">
-              Your registration is is successful!
+              Registration successful!
             </div>
 
           </div>

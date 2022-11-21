@@ -1,3 +1,10 @@
+btn-color {
+  background: #57bbc1;
+  border-style: solid;
+  border-color: 57bbc1;
+  border-radius: 10px
+}
+
 div#form {
     padding: 35px;
     color: #2D2B28;
