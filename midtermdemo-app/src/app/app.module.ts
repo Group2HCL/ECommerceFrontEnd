@@ -22,6 +22,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import{MatInputModule} from '@angular/material/input';
 
+
 import { authInterceptorProviders } from './Helper/auth.interceptor';
 import { CartComponent } from './Components/cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -57,7 +58,6 @@ import { OrdersComponent } from './Components/orders/orders.component';
     MatFormFieldModule,
     MatInputModule, 
     ReactiveFormsModule
-
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

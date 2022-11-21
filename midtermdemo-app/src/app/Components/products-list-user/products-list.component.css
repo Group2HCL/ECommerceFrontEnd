@@ -1,4 +1,26 @@
 .list {
+  text-align: left;
+  max-width: 750px;
+  margin: auto;
+}
+
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 2rem
+}
+
+
+.border {
+  border:  gray;
+  border-radius: 15px;
+  border-style: solid;
+  padding: top 20px, bottom 10px;
+  margin: 20px 
+}
+
+.btnhov:hover {
+  background-color: #57bbc1;
     text-align: left;
     max-width: 750px;
     margin: auto;
