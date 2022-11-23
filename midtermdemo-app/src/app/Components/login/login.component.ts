@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
         this.userN = this.tokenStorage.getUser().username;
-        this.reloadPage();
+        window.location.replace('/home');
       },
       err => {
         this.errorMessage = err.error.message;

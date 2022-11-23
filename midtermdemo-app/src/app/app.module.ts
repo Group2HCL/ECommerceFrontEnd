@@ -21,6 +21,8 @@ import { ProductsListComponentUser } from './Components/products-list-user/produ
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import{MatInputModule} from '@angular/material/input';
+import{ MatDialogModule } from '@angular/material/dialog';
+
 
 
 import { authInterceptorProviders } from './Helper/auth.interceptor';
@@ -57,7 +59,8 @@ import { OrdersComponent } from './Components/orders/orders.component';
     MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule, 
+    MatDialogModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

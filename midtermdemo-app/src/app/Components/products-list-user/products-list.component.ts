@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Products } from 'src/app/Models/products.model';
 import { CartService } from 'src/app/Services/cart.service';
 import { ProductsService } from 'src/app/Services/products.service';
+import { ProductDetailsComponentUser } from '../product-details-user/product-details.component';
 
 @Component({
   selector: 'app-products-list-user',
@@ -23,9 +25,8 @@ export class ProductsListComponentUser implements OnInit {
   ngOnInit(): void {
     this.retrieveProducts();
     this.cartProductList = this.cartService.cartContents
-
-
   }
+
 
   retrieveProducts(): void {
     this.productsService.getAll()
@@ -42,10 +43,6 @@ export class ProductsListComponentUser implements OnInit {
     this.retrieveProducts();
     this.currentProduct = {};
     this.currentIndex = -1;
-  }
-
-  addProduct(id: any): void {
-    this.cartService.addToCart(this.currentProduct)
   }
 
   setActiveProduct(product: Products, index: number): void {

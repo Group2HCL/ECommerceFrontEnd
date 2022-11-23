@@ -41,6 +41,9 @@ export class CartComponent implements OnInit {
         res=> {console.log(res);}
       );
     }
+
+    //ADD DELETE PRODUCT FROM CART FUNCTION
+
   
      
   }

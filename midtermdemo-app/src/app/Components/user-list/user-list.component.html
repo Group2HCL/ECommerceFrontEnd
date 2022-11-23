@@ -1,21 +1,12 @@
 <div class="list row">
     <div class="col-md-8">
       <br/>
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Search by username"
-          [(ngModel)]="username"
-        />
-        <div class="input-group-append">
-          <button
-            class="btn btn-outline-secondary"
-            (click)="searchName()"
-          >
-            Search
-          </button>
-        </div>
+      <div class="container col-md-5 input-group">
+        <input type="text" style="height: 42px" class="form-control" placeholder="Search by username"
+          [(ngModel)]="username" />
+        <span class="input-group-addon">
+          <button class="btn btn-outline-secondary fa fa-search" (click)="searchName()"> </button>
+        </span>
       </div>
     </div>
     <div class="col-md-6">

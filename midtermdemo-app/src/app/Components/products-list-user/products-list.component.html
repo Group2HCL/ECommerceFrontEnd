@@ -26,7 +26,7 @@
               <div class="btn-group">
                 <button type="button" class="btn btnhov btn-sm btn-outline-secondary" (click)="setActiveProduct(product, i)">
                   View</button>
-                <button type="button" class="btn btnhov btn-sm btn-outline-secondary" (click)="addProduct(product)"> Add to Cart </button>
+                <button type="button" class="btn btnhov btn-sm btn-outline-secondary"> Add to Cart </button>
               </div>
           </ul>
         </div>
@@ -37,6 +37,6 @@
 
 
 
-<div class="col-md-6 popup">
+<div class="col-md-6">
   <app-product-details-user [viewMode]="true" [currentProduct]="currentProduct"></app-product-details-user>
 </div>

@@ -5,7 +5,6 @@
   }
 
   div#form {
-    padding: 35px;
     color: #2D2B28;
     background-attachment: scroll;
     background: #1c1e21 url(https://images.pexels.com/photos/4231428/pexels-photo-4231428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
@@ -22,4 +21,12 @@
 div#background {
     padding-left: 150px;
     padding-right: 150px;
+}
+
+.container{
+  padding: 20px;
+  width: 500px;
+  position: relative;
+  right: 50px 
+  
 }

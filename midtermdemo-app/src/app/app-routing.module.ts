@@ -19,8 +19,8 @@ import { OrdersComponent } from './Components/orders/orders.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'products', component: ProductsListComponent },
-  { path: 'products/:id', component: ProductDetailsComponent },
+  { path: 'admin/products', component: ProductsListComponent },
+  { path: 'admin/products/:id', component: ProductDetailsComponent },
   { path: 'add', component: AddProductComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
@@ -31,10 +31,10 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'user', component: BoardUserComponent },
   { path: 'admin', component: BoardAdminComponent },
-  {path: 'users', component: UserListComponent },
-  {path: 'users/:id', component: UserDetailsComponent},
-  {path: 'productsU', component: ProductsListComponentUser},
-  {path: 'productsU/:id', component: ProductDetailsComponentUser},
+  {path: 'admin/users', component: UserListComponent },
+  {path: 'admin/users/:id', component: UserDetailsComponent},
+  {path: 'products', component: ProductsListComponentUser},
+  {path: 'products/:id', component: ProductDetailsComponentUser},
   {path: 'cart', component: CartComponent},
   {path: 'orders', component: OrdersComponent}
 ];
