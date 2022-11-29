@@ -42,6 +42,6 @@ export class ProductsService {
 
     addToCart(id: any): void {
         console.log("sending request to " + `${ADD_API}/${id}`)
-        this.http.get(`${ADD_API}/${id}`);
+        this.http.get(`${baseUrl}/${id}`);
       }
 }

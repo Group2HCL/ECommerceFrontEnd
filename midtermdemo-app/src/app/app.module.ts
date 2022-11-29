@@ -29,6 +29,7 @@ import { authInterceptorProviders } from './Helper/auth.interceptor';
 import { CartComponent } from './Components/cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrdersComponent } from './Components/orders/orders.component';
+import { CheckoutComponent } from './Components/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { OrdersComponent } from './Components/orders/orders.component';
     ProductDetailsComponentUser,
     ProductsListComponentUser,
     CartComponent,
-    OrdersComponent
+    OrdersComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

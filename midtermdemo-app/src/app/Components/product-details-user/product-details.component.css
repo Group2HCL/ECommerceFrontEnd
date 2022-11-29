@@ -9,3 +9,6 @@
     padding: 5px;
     width: 300px;
   }
+  .btn-cart{
+    position: fixed, left;
+  }

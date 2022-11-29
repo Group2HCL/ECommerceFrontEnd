@@ -24,6 +24,7 @@ export class ProductDetailsComponentUser implements OnInit {
   };
   isPresent: boolean= false;
   message = '';
+  addSuccess = false;
 
   constructor(
     private productService: ProductsService,
@@ -67,7 +68,8 @@ export class ProductDetailsComponentUser implements OnInit {
   }
 
   addProduct(id: any): void {
-    this.cartService.addToCart(this.currentProduct)
+    this.cartService.addToCart(this.currentProduct);
+    this.addSuccess =true; 
   }
   removeProduct(id: any): void{
     this.cartService.removeFromCart(this.currentProduct)

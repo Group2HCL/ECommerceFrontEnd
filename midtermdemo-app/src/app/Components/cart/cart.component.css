@@ -1,6 +1,6 @@
-.img {
-    width:20px;
-    height:20px
+.img-sm {
+    width:75px;
+    height:75px
 }
 
 .section {
@@ -20,3 +20,9 @@
     height:auto;
     display:inline-block;
 }
+
+.spacing{
+    text-align: center;
+    width: 700px;
+}
+

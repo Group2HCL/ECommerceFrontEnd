@@ -24,58 +24,53 @@
 
           <table class="table table-borderless table-shopping-cart">
             <thead class="text-muted">
-              <tr class="small text-uppercase">
-                <th scope="col">Product</th>
+              <tr class="small text-uppercase" style ="text-align: right;">
+                <th></th>
+                <th scope="col" width="200">Product</th>
                 <th scope="col" width="120">Quantity</th>
-                <th scope="col" width="120">Price</th>
+                <th scope="col" width="200">Price</th>
                 <th scope="col" class="text-right" width="200"> </th>
               </tr>
             </thead>
+            <tr class = "spacing" *ngIf ="emptyCart"> Your cart is empty <i class="fa fa-face-frown"></i> </tr>
             <tbody>
-              <tr >
                 <td>
-                  <figure class="itemside" *ngFor="let product of this.cartProductList; let i = index"> 
-                    <div class="aside"><img class = "img" src= {{this.cartProductList[i].image}} class="img-sm"></div>
-                    <figcaption class="info">
-                      <a href="#" class="title text-dark"> {{this.cartProductList[i].name}}</a>
-                      <p class="text-muted small"> {{this.cartProductList[i].description}} </p>
-                    </figcaption>
-                  </figure>
-                </td>
+                  <figure class="itemside" *ngFor="let product of this.cartProductList; let i = index">
+                    <div class="aside"><img src={{this.cartProductList[i].image}} class="img-sm"> {{this.cartProductList[i].name}} </div>
                 <td>
-                  
-                <!-- Incorporate quantity here PLUS/MINUS BUTTONS and REMOVE -->
-                 <section class="section"> <input type="number" min="1" max="99" style = "width:33.3%"> </section> 
-                <!--=============================================-->  
+                  <section class="section"> <input type="number" min="1" max="99"
+                      ngModel="[(this.cartProductList[i].quantity)]">
+                  </section>
+                  <!--=============================================-->
                 </td>
                 <td>
                   <div class="price-wrap">
-                    <var class="price">$1156.00</var>
-                    <small class="text-muted"> $315.20 each</small>
+                    <var class="price"></var>
+                    <!-- Price per Unit-->
+                    <small class="text-muted"> </small>
                   </div> <!-- price-wrap .// -->
                 </td>
                 <td class="text-right">
                   <a href="" class="btn btn-light"> Remove</a>
                 </td>
-              </tr>
-  
-        
+                </figure>
+                </td>
             </tbody>
           </table>
 
           <div class="card-body border-top">
             <a href="/products" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Continue Shopping </a>
             <div class="divider"></div>
-            <button type="submit" class="btn btn-primary float-md-right"
-              (click)="this.createOrder(this.cartProductList)"> Check Out <i class="fa fa-chevron-right"></i> </button>
+            <a href="/checkout" class="btn btn-light"> Check Out <i class="fa fa-chevron-right"></i> </a>
           </div>
           <br>
         </div> <!-- card.// -->
 
         <div class="alert alert-success mt-3">
-          <p class="icontext"><i class="icon text-success fa fa-truck-fast"></i> Spend $100 or more to qualify for free shipping! </p>
+          <p class="icontext"><i class="icon text-success fa fa-truck-fast"></i> Spend $100 or more to qualify for free
+            shipping! </p>
         </div>
-        
+
       </main> <!-- col.// -->
       <aside class="col-md-3">
         <div class="card mb-3">
@@ -98,19 +93,19 @@
             <dl class="dlist-align">
 
               <!-- Interperpolate prices HERE-->
-              <dt>Total price:</dt>
-              <dd class="text-right">USD 568</dd>
+              <dt> Subtotal: </dt>
+              <dd class="text-right"> {{cartSubtotal | currency: 'USD'}}</dd>
             </dl>
             <dl class="dlist-align">
-              <dt>Discount:</dt>
-              <dd class="text-right">USD 658</dd>
+              <dt>Discount: </dt>
+              <dd class="text-right">{{discountTotal | currency: 'USD'}} </dd>
             </dl>
             <dl class="dlist-align">
               <dt>Total:</dt>
-              <dd class="text-right  h5"><strong>$1,650</strong></dd>
+              <dd class="text-right  h5"> {{cartTotal | currency: 'USD' }}</dd>
             </dl>
             <hr>
-          
+
 
           </div> <!-- card-body.// -->
         </div> <!-- card .// -->

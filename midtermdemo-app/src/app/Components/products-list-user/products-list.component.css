@@ -46,3 +46,13 @@
   font-size: 15px;
   margin: 5px;
 }
+
+.modal-content {
+  padding-left: 10px;
+  padding-top: 15px;
+  padding-right:10px;
+}
+
+.close {
+  position: fixed, left;
+}

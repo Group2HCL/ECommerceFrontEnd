@@ -74,10 +74,18 @@ export class ProductsListComponentUser implements OnInit {
         error: (e) => console.error(e)
       });
   }
-  addProduct(id: any): void {
-    console.log("Adding item " + id)
-    this.cartService.addToCart(id)
 
+  addProduct(id: any): void {
+    console.log("Adding item " + id);
+    this.cartService.addToCart(id);
   }
 
+  displayStyle = "none";
+  
+  openPopup() {
+    this.displayStyle = "block";
+  }
+  closePopup() {
+    this.displayStyle = "none";
+  }
 }

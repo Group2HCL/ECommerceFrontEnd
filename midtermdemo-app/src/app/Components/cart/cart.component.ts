@@ -15,6 +15,11 @@ import { OrderService } from 'src/app/Services/order.service';
 })
 export class CartComponent implements OnInit {
   productList ?: Products[];
+  cartSubtotal: number =  0.00;
+  discountTotal: number = 0.00; 
+  cartTotal: number = this.cartSubtotal - this.discountTotal;
+  emptyCart = false;
+
   cartProductList: any = this.cartService.cartContents;
    
   constructor(private cartService: CartService, private productsService: ProductsService, private orderService: OrderService) {  }
@@ -22,7 +27,11 @@ export class CartComponent implements OnInit {
   ngOnInit(): void { 
     this.retrieveProducts
     this.cartProductList=this.cartService.cartContents
-    console.log(this.cartProductList)  
+    console.log(this.cartProductList)
+  
+    if(this.cartProductList.length === 0 ) {
+      this.emptyCart = true;
+    }
      }
     
      retrieveProducts(): void {
@@ -41,10 +50,9 @@ export class CartComponent implements OnInit {
         res=> {console.log(res);}
       );
     }
-
+  
     //ADD DELETE PRODUCT FROM CART FUNCTION
 
   
      
   }
-
