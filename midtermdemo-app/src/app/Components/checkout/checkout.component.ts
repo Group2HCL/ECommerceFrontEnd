@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/Services/cart.service';
 
 @Component({
   selector: 'app-checkout',
@@ -10,9 +11,10 @@ export class CheckoutComponent implements OnInit {
 
   paymentHandler: any = null;
 
-  constructor() { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
+    this.cartService.cartContents;
     this.invokeStripe();
   }
   //Configure Stripe payment connection

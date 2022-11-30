@@ -217,8 +217,15 @@
                     -->
 
                         <hr class="mb-4">
-                        <button class="btn btn-primary btn-lg btn-block" type="submit" (click) = "makePayment(10)" > <i class = "fa fa-lock"> </i> Continue to Secure Checkout  </button>
-
+                        <div>
+                            <a routerLink="/cart" class="btn btn-light" style = "width: 30%"> <i class="fa fa-chevron-left"></i> Customer
+                                Information </a>
+                                <div class="divider"></div>
+                            <!--- DYNAMIC CHECKOUT -->
+                            <button class="btn btn-primary btn-block" type="submit" (click)="makePayment(10)" style = "width: 70%"> <i
+                                    class="fa fa-lock"> </i> Continue to Stripe Secure Checkout <i
+                                    class="fa fa-chevron-right"></i> </button>
+                        </div>
                     </form>
 
                 </div>
@@ -227,17 +234,14 @@
 
             </div>
             <!--Grid column-->
-
-            <!--Grid column-->
+            <!-- CART QUICK VIEW IF TIME PERMITS 
             <div class="col-md-4 mb-4">
 
-                <!-- Heading -->
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                     <span class="text-muted">Your cart</span>
                     <span class="badge badge-secondary badge-pill">3</span>
                 </h4>
 
-                <!-- Cart -->
                 <ul class="list-group mb-3 z-depth-1">
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
@@ -272,9 +276,7 @@
                         <strong>$20</strong>
                     </li>
                 </ul>
-                <!-- Cart -->
 
-                <!-- Promo code -->
                 <form class="card p-2">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Promo code"
@@ -284,12 +286,11 @@
                         </div>
                     </div>
                 </form>
-                <!-- Promo code -->
 
             </div>
-            <!--Grid column-->
-
+        -->
         </div>
+
         <!--Grid row-->
 
     </div>
@@ -298,25 +299,25 @@
 
 <footer>
     <!-- ========================= SECTION  ========================= -->
-<section class="section-name bg padding-y">
-    <div class="container">
-      <h6>Payment and refund policy</h6>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  
-    </div><!-- container // -->
-  </section>
-  <!-- ========================= SECTION  END// ========================= -->
-</footer>
+    <section class="section-name bg padding-y">
+        <div class="container">
+            <h6>Payment and refund policy</h6>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-<!--Main layout-->
+        </div><!-- container // -->
+    </section>
+    <!-- ========================= SECTION  END// ========================= -->
+
+</footer>
+<router-outlet></router-outlet>
