@@ -218,10 +218,11 @@
 
                         <hr class="mb-4">
                         <div>
-                            <a routerLink="/cart" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Return to Cart </a>
+                            <a routerLink="/cart" class="btn btn-light" style = "width: 30%"> <i class="fa fa-chevron-left"></i> Customer
+                                Information </a>
                                 <div class="divider"></div>
                             <!--- DYNAMIC CHECKOUT -->
-                            <button class="btn btn-primary btn-block" type="submit" (click)="makePayment(cartSubtotal)"> <i
+                            <button class="btn btn-primary btn-block" type="submit" (click)="makePayment(10)" style = "width: 70%"> <i
                                     class="fa fa-lock"> </i> Continue to Stripe Secure Checkout <i
                                     class="fa fa-chevron-right"></i> </button>
                         </div>

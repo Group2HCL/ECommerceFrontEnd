@@ -1,0 +1,15 @@
+.row {
+    margin-bottom: 15px;
+}
+
+.btn {
+    background-color: #57bbc1;
+    color: #ffffff;
+    border-color: #499ca0
+}
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}

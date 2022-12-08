@@ -20,7 +20,9 @@ export class ProductDetailsComponentUser implements OnInit {
     price: 0,
     stock: 0,
     description: '',
-    image: ''
+    image: '',
+    id: 0,
+    quantity: 0
   };
   isPresent: boolean= false;
   message = '';
@@ -33,7 +35,7 @@ export class ProductDetailsComponentUser implements OnInit {
     protected cartService: CartService) { }
 
   ngOnInit(): void {
-    if(this.cartService.cartContents.includes(this.currentProduct)){
+    if(this.cartService.cartItems && this.cartService.cartItems.includes(this.currentProduct)){
       this.isPresent=true;
     }
     if (!this.viewMode) {
@@ -67,10 +69,13 @@ export class ProductDetailsComponentUser implements OnInit {
       });
   }
 
+  
   addProduct(id: any): void {
     this.cartService.addToCart(this.currentProduct);
-    this.addSuccess =true; 
+    this.addSuccess = true; 
   }
+
+  /*
   removeProduct(id: any): void{
     this.cartService.removeFromCart(this.currentProduct)
   }
@@ -85,5 +90,5 @@ export class ProductDetailsComponentUser implements OnInit {
         error: (e) => console.error(e)
       });
   }
-
+*/
 }

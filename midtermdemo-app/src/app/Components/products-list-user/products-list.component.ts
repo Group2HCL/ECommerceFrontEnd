@@ -16,7 +16,7 @@ export class ProductsListComponentUser implements OnInit {
   currentProduct: Products = {};
   currentIndex = -1;
   name = '';
-  cartProductList: Products[] = this.cartService.cartContents;
+  cartProductList: Products[] = this.cartService.cartItems;
 
 
 
@@ -24,7 +24,7 @@ export class ProductsListComponentUser implements OnInit {
 
   ngOnInit(): void {
     this.retrieveProducts();
-    this.cartProductList = this.cartService.cartContents
+    this.cartProductList = this.cartService.cartItems;
   }
 
 

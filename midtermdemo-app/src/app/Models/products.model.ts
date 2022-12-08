@@ -1,3 +1,4 @@
+
 export class Products{
 id?: any;
 name?: string;
@@ -6,5 +7,5 @@ price?: number;
 stock?: number;
 image?: string;
 description?: any;
-num?: number;
+quantity?: number;
 }
