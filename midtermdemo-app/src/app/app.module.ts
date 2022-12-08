@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatSlideToggleModule,  } from '@angular/material/slide-toggle';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,13 +21,19 @@ import { ProductsListComponentUser } from './Components/products-list-user/produ
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import{MatInputModule} from '@angular/material/input';
-
-
 import { authInterceptorProviders } from './Helper/auth.interceptor';
 import { CartComponent } from './Components/cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrdersComponent } from './Components/orders/orders.component';
-
+import {OktaAuth} from '@okta/okta-auth-js';
+import { OktaAuthModule, OKTA_CONFIG } from '@okta/okta-angular';
+const config = {
+  issuer: 'https://dev-15967023.okta.com/oauth2/default',
+  clientId: '0oa7g3ezwtgJdUgM05d7',
+  redirectUri: 'http://localhost:4200/login/callback',
+  scopes: ['openid', 'profile']
+}
+const oktaAuth = new OktaAuth(config);
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +52,7 @@ import { OrdersComponent } from './Components/orders/orders.component';
     ProductsListComponentUser,
     CartComponent,
     OrdersComponent
-  ],
+  ], 
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -57,9 +63,11 @@ import { OrdersComponent } from './Components/orders/orders.component';
     MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    OktaAuthModule,
+    
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders,{provide: OKTA_CONFIG, useValue:{oktaAuth}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
