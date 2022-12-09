@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 import { ProductsService } from 'src/app/Services/products.service';
 import { OrderService } from 'src/app/Services/order.service';
 import { CartItem } from 'src/app/Models/cartitem.model';
+import { HttpClient } from '@angular/common/http';
+import { loadStripe } from '@stripe/stripe-js';
 
 
 
@@ -30,7 +32,7 @@ export class CartComponent implements OnInit {
 
 
 
-  constructor(private cartService: CartService, private productsService: ProductsService, private orderService: OrderService) { }
+  constructor(private cartService: CartService, private productsService: ProductsService, private orderService: OrderService, private http: HttpClient) { }
 
 
   ngOnInit(): void {
@@ -40,6 +42,19 @@ export class CartComponent implements OnInit {
     console.log(this.cart)
     this.updateCartStatus();
 
+  }
+
+  onCheckout(): void {
+    console.log(this.cart);
+    //Sends the JSON obj items(key): cart (value)
+    this.http.post('http://localhost:4242/checkout',{ 
+      items: this.cart
+    }).subscribe(async (res: any) => {
+      let stripe = await loadStripe('pk_test_51M8wDWEFgnWSeeLrB8b9f8Wn8LiOKC9Kq7HSdWYyvsuDjzPk93yYq4SfO0F8rsp48Ul03j1kJDKMlPHILLoleW0z00q6ohf09S');
+      stripe?.redirectToCheckout({
+        sessionId: res.id
+      });
+    });
   }
 
 
