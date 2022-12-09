@@ -23,11 +23,10 @@ export class CartService {
   totalQuantity: Subject<number> = new BehaviorSubject<number>(0);
 
 
-
   constructor() {
     this.computeCartTotals();
   }
-
+  
   computeCartTotals() {
     let totalCartPrice: number = 0;
     let totalQuantityValue: number = 0;
@@ -41,7 +40,7 @@ export class CartService {
       for (let cartItem of this.cartItems) {
         totalCartPrice += (cartItem.quantity ?? 0) * (cartItem.unitPrice ?? 0);
         totalQuantityValue += cartItem.quantity ?? 0;
-        console.log(cartItem.quantity);
+        console.log(totalQuantityValue);
       }
     }
 

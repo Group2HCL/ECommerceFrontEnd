@@ -25,7 +25,7 @@ export class CartComponent implements OnInit {
   cartSubtotal: number = 0;
   discountTotal: number = 0;
   totalPrice: number = 0;
-  @Input() totalQuantity?: number;
+  totalQuantity?: number;
   emptyCart = false;
 
 
