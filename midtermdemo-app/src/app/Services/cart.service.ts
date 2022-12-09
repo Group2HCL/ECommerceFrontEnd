@@ -1,66 +1,94 @@
 import { ChangeDetectorRef, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Observable, Subject} from 'rxjs';
+import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { Products } from '../Models/products.model';
-import { cartContents } from '../Models/cartcontents.model';
-import {of} from 'rxjs';
+import { of } from 'rxjs';
 import { isNgTemplate } from '@angular/compiler';
+import { CartItem } from '../Models/cartitem.model';
+import { Cart } from '../Models/cart.model';
 
-const CART_API = "http://localhost:8181/api/ShoppingCart/shoppingCart";
-const PRICE_API = "http://localhost:8181/api/ShoppingCart/shoppingCart/price";
-const ADD_API = "http://localhost:8181/api/ShoppingCart/shoppingCart/addProduct";
-const REMOVE_API = "http://localhost:8181/api/ShoppingCart/shoppingCart/removeProduct";
-const CHECKOUT_API = "http://localhost:8181/api/ShoppingCart/shoppingCart/checkout";
+
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
+
 })
 export class CartService {
 
-  cartContents:Products[] =[]
-  detector: Subject<boolean> = new Subject();
-
-  constructor(private httpClient: HttpClient) { }
-
-  getCart(): Observable<cartContents[]> {
-    
-    console.log("Injectable active")
-    return of(this.cartContents);
-}
-
-  public addToCart(toAdd: Products){   
-      let productExistInCart:Products = null as any;
-      // this.cartContents.find((value) => {toAdd.name==value.name});
-      // find product by name
-      this.cartContents.forEach((index) => {if(index.name==toAdd.name) productExistInCart=index;});
-         console.log(productExistInCart)
-        if (!productExistInCart) {
-          toAdd.num=1; // assign initial "num" property
-          this.cartContents.push(toAdd)
-          return;
-        }else{
-          productExistInCart.num!+= 1;}
-        console.log(this.cartContents)
-           }  
-
-  public removeFromCart(id: Products){
-    console.log("removal ID name " + id.name)
-    let productExistInCart=this.cartContents.find((value,index): Products|undefined => {if(id.name===value.name){ console.log(value.name); return this.cartContents[index]}return undefined}) ?? new Products();// find product by name, i used nullish coalescing to protect the null
-        console.log("this is what removal logic thinks is in the cart " + productExistInCart.name)    
-        if (productExistInCart.num!>1) {
-          productExistInCart.num!-= 1; //if more than one copy in the cart just reduce one copy
-          return;
-        }
-        this.cartContents.forEach((value,index) => {if(value.name==id.name) this.cartContents.splice(index,1);}); //remove if at last copy 
-        console.log(this.cartContents)
-      } 
-    
-  public isPresent(product: Products){
-    if(this.cartContents.find((value): Products => {product.name==value.name; return value})!){
-      return this.detector.next(true);
-    }
-    return this.detector.next(false);
-
-  }
+  //An array of Cart Items 
+  cartItems: CartItem[] = [];
   
+  //BehaviorSubject requires an initial value and stores the current value and emits it to the new subscribers.
+  totalPrice: Subject<number> = new BehaviorSubject<number>(0);
+  totalQuantity: Subject<number> = new BehaviorSubject<number>(0);
+
+
+
+  constructor() {
+    this.computeCartTotals();
+  }
+
+  computeCartTotals() {
+    let totalCartPrice: number = 0;
+    let totalQuantityValue: number = 0;
+
+    if (!this.cartItems) {
+      totalCartPrice = 0;
+      totalQuantityValue = 0;
+    }
+    
+    else {
+      for (let cartItem of this.cartItems) {
+        totalCartPrice += (cartItem.quantity ?? 0) * (cartItem.unitPrice ?? 0);
+        totalQuantityValue += cartItem.quantity ?? 0;
+        console.log(cartItem.quantity);
+      }
+    }
+
+    // publish the new values ... all subscribers will receive the new data
+    this.totalPrice.next(totalCartPrice);
+    this.totalQuantity.next(totalQuantityValue);
+  }
+
+  addToCart(cartProduct: Products) {
+    console.log(cartProduct)
+    let cartItem: CartItem = new CartItem(cartProduct);
+    console.log(cartItem)
+    //Object -- sets var to cartItem if already exists
+    let existingCartItem = this.cartItems.find(
+      (tempCartItem) => tempCartItem.id === cartItem.id
+    );
+    console.log(existingCartItem);
+
+    if (existingCartItem != undefined) {
+      // increment the quantity
+      existingCartItem.quantity!++;
+    } else {
+      // just add the item to the array
+      if (!this.cartItems) {
+        this.cartItems = [cartItem];
+      } else {
+        this.cartItems.push(cartItem);
+      }
+    }
+
+    // compute cart total price and total quantity
+    this.computeCartTotals();
+  }
+
+  remove(cartItem: CartItem) {
+    // get index of the item in the array
+    const itemIndex = this.cartItems.findIndex(
+      (item) => item.id === cartItem.id
+    );
+
+    // if found, remove the item from the array
+    if (itemIndex > -1) {
+      this.cartItems.splice(itemIndex, 1);
+
+      this.computeCartTotals();    }
+  }
+
+  
+
 }

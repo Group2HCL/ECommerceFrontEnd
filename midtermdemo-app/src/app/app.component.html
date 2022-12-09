@@ -11,7 +11,7 @@
     </li>
     -->
     <li class="nav-item" *ngIf="isLoggedIn">
-      <a routerLink="productsU" class="nav-link"><i class ="fa-solid fa-shop"></i></a>
+      <a routerLink="products" class="nav-link"><i class ="fa-solid fa-shop"></i></a>
     </li>
     
     <li class="nav-item dropdown">
@@ -20,8 +20,8 @@
         Admin Links
     </a>
       <div class="dropdown-menu nav-link">
-        <a class="dropdown-item nav-link" routerLink="products" href="#">Product List</a>
-        <a class="dropdown-item nav-link" routerLink="users" href="#">User List</a>
+        <a class="dropdown-item nav-link" routerLink="admin/products" href="#">Products</a>
+        <a class="dropdown-item nav-link" routerLink="admin/users" href="#">User List</a>
       </div>
     </li>
   </ul>

@@ -154,7 +154,7 @@ div#form {
 }
 #userform .tab-pane h2 {
 	margin: 10px 0;
-	color: #a2a2a2;
+	color: #656565;
 }
 #userform .tab-pane p.lead {
 	margin-top: 20px;
@@ -172,7 +172,7 @@ div#form {
 #userform .form-group input.form-control {
 	height: auto;
 	background-color: rgba(237, 235, 250, 0.1);
-	color: #a2a2a2;
+	color: #656565;
 }
 #userform .form-control {
 	border-radius: 0;

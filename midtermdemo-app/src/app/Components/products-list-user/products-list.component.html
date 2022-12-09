@@ -1,6 +1,6 @@
 <section class="jumbotron text-center">
-    <h1 class="jumbotron-heading"> Product Catalog </h1>
-    <p class="lead text-muted"> Extensive list of the latest products. New inventory added daily! </p>
+  <h1 class="jumbotron-heading"> Product Catalog </h1>
+  <p class="lead text-muted"> Extensive list of the latest products. New inventory added daily! </p>
 </section>
 
 <div class="container col-md-5 input-group" style="width: 50%">
@@ -12,32 +12,40 @@
 </div>
 
 <div *ngFor=" let product of products; let i=index" [class.active]="i == currentIndex">
-    <div class="col-md-3" >
-      <div class="card mb-4 border">
-        <!-- Product Image -->
-        <img class="card-img-top" data-src= {{product.image}}>
-        <div class="card-body">
-          <ul class="list-group">
-            <li class="list-group-item">
-              <p class="card-text"> {{product.name}} </p>
-            </li>
-            {{product.price | currency: 'USD'}}
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btnhov btn-sm btn-outline-secondary" (click)="setActiveProduct(product, i)">
-                  View</button>
-                <button type="button" class="btn btnhov btn-sm btn-outline-secondary" (click)="addProduct(product)"> Add to Cart </button>
+  <div class="col-md-3">
+    <div class="card mb-4 border">
+      <img class="card-img-top" src={{product.image}}>
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item card-border">
+            <p class="card-text"> <strong> {{product.name}} </strong> </p>
+          </li>
+          <br>
+          <div> {{product.price | currency: 'USD'}} </div>
+          <br>
+          <div class="btn-group">
+            <button type="button" class="btn btnhov btn-sm btn-outline-secondary"
+              (click)="setActiveProduct(product, i); openPopup()">
+              View More</button>
+            <!-- (click)="" -->
+          </div>
+          <!-- MODAL POPUP -->
+          <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <button type="button" class="btnhov close" (click)="closePopup()"> <i class ="fa-solid fa-x"> </i> 
+                </button>
+                <br>  
+                <div >
+                  <app-product-details-user [viewMode]="true" [currentProduct]="currentProduct">
+                  </app-product-details-user>
+                </div>
+                <div class="modal-footer"></div>
               </div>
             </div>
-          </ul>
-        </div>
+          </div>
+        </ul>
       </div>
+    </div>
   </div>
-</div>
-
-
-
-
-<div class="col-md-6 popup">
-  <app-product-details-user [viewMode]="true" [currentProduct]="currentProduct"></app-product-details-user>
 </div>

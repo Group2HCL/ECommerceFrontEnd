@@ -1,3 +1,4 @@
+
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OktaAuthStateService, OKTA_AUTH, OKTA_CONFIG} from '@okta/okta-angular';
@@ -17,6 +18,7 @@ export class AppComponent implements OnInit {
   title = 'midtermdemo-app';
   private roles: string[] = [];
   isLoggedIn = false;
+
   showAdminBoard = false;  
   user?: Users;
   username!:Observable<string>;
@@ -59,5 +61,6 @@ export class AppComponent implements OnInit {
     window.sessionStorage.clear();
     window.localStorage.clear();
     window.location.reload()    
+
   }
 }

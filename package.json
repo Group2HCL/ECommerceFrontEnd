@@ -3,6 +3,7 @@
     "postcss-import": "^15.0.0"
   },
   "dependencies": {
+    "@okta/okta-angular": "^6.0.0",
     "postcss-font-variant": "^5.0.0"
   }
 }

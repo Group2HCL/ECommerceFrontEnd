@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['login'])
       ;
 
+
     }).catch(err => console.error(err))}catch{console.error(this.errorMessage)};
    
   console.log('testing for logged in: ' + this.tokenStorage.getUser().name)
@@ -59,6 +60,7 @@ export class LoginComponent implements OnInit {
   data => {
     this.tokenStorage.saveToken(data.token);
     this.tokenStorage.saveUser(data);
+
 
     this.isLoginFailed = false;
     this.isLoggedIn = true;

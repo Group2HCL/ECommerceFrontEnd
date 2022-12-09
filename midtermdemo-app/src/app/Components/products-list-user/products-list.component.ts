@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Products } from 'src/app/Models/products.model';
 import { CartService } from 'src/app/Services/cart.service';
 import { ProductsService } from 'src/app/Services/products.service';
+import { ProductDetailsComponentUser } from '../product-details-user/product-details.component';
 
 @Component({
   selector: 'app-products-list-user',
@@ -14,12 +16,17 @@ export class ProductsListComponentUser implements OnInit {
   currentProduct: Products = {};
   currentIndex = -1;
   name = '';
+  cartProductList: Products[] = this.cartService.cartItems;
 
-  constructor(private productsService: ProductsService,private cartService: CartService) { }
+
+
+  constructor(private productsService: ProductsService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.retrieveProducts();
+    this.cartProductList = this.cartService.cartItems;
   }
+
 
   retrieveProducts(): void {
     this.productsService.getAll()
@@ -67,10 +74,18 @@ export class ProductsListComponentUser implements OnInit {
         error: (e) => console.error(e)
       });
   }
-  addProduct(id: any): void {
-    console.log("Adding item " + id)
-    this.cartService.addToCart(id)
 
+  addProduct(id: any): void {
+    console.log("Adding item " + id);
+    this.cartService.addToCart(id);
   }
 
+  displayStyle = "none";
+  
+  openPopup() {
+    this.displayStyle = "block";
+  }
+  closePopup() {
+    this.displayStyle = "none";
+  }
 }

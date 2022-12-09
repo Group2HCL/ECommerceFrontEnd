@@ -21,10 +21,15 @@ import { ProductsListComponentUser } from './Components/products-list-user/produ
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import{MatInputModule} from '@angular/material/input';
+import{ MatDialogModule } from '@angular/material/dialog';
+
 import { authInterceptorProviders } from './Helper/auth.interceptor';
 import { CartComponent } from './Components/cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrdersComponent } from './Components/orders/orders.component';
+
+import { CheckoutComponent } from './Components/checkout/checkout.component';
+
 import {OktaAuth} from '@okta/okta-auth-js';
 import { OktaAuthModule, OKTA_CONFIG } from '@okta/okta-angular';
 const config = {
@@ -34,6 +39,7 @@ const config = {
   scopes: ['openid', 'profile']
 }
 const oktaAuth = new OktaAuth(config);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,8 +57,10 @@ const oktaAuth = new OktaAuth(config);
     ProductDetailsComponentUser,
     ProductsListComponentUser,
     CartComponent,
-    OrdersComponent
-  ], 
+    OrdersComponent,
+    CheckoutComponent
+  ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -63,9 +71,9 @@ const oktaAuth = new OktaAuth(config);
     MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule, 
+    MatDialogModule,
     ReactiveFormsModule,
     OktaAuthModule,
-    
   ],
   providers: [authInterceptorProviders,{provide: OKTA_CONFIG, useValue:{oktaAuth}}],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-<div *ngIf="viewMode; else editable">
+
   <div *ngIf="currentProduct.id">
     <div>
       <label><strong>Name:</strong></label> {{ currentProduct.name }}
@@ -7,137 +7,30 @@
       <label><strong>Category:</strong></label> {{ currentProduct.category }}
     </div>
     <div>
-      <label><strong>Price:</strong></label> {{ currentProduct.price }}
-    </div>
-    <div>
-      <label><strong>Stock:</strong></label> {{ currentProduct.stock }}
+      <label><strong>Price:</strong></label> {{ currentProduct.price | currency: 'USD' }}
     </div>
     <div>
       <label><strong>Description:</strong></label>
       {{ currentProduct.description }}
     </div>
     <div>
-      <label><strong>Image:</strong></label> <br />
-     <!-- {{ currentProduct.image }} -->
     </div>
-      <img src={{currentProduct.image}} class="img1" alt={{currentProduct.description}} >
-    <br/>
-    <br/>
-    
+    <img src={{currentProduct.image}} class="img1" alt={{currentProduct.description}}>
+    <br />
+    <br />
 
-    <a
-      class="badge badge-warning"
-      routerLink="/products/{{ currentProduct.id }}"
-    >
-      
+
+    <a class="badge badge-warning" routerLink="/products/{{ currentProduct.id }}">
+
     </a>
-    <button
-    type="submit"
-    class="badge badge-success mb-2"
-    (click)="addProduct(currentProduct)"
-  >
-    Add to Cart
-  </button>
-
-  <button type="submit" class="badge badge-warning" (click)="this.removeProduct(currentProduct)">
-  Remove from cart</button>
+    <button type="submit" class="badge badge-success mb-2" (click)="addProduct(currentProduct)">
+      Add to Cart
+    </button>
+    <div class="alert alert-success" *ngIf = addSuccess role = "alert"> {{currentProduct.name}} succesfully added to the cart! </div>
   </div>
 
   <div *ngIf="!currentProduct">
     <br />
     <p>Please click on a Product...</p>
   </div>
-</div>
-
-<ng-template #editable>
-  <div *ngIf="currentProduct.id" class="edit-form">
-    <h4>Product</h4>
-    <form>
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input
-          type="text"
-          class="form-control"
-          id="name"
-          [(ngModel)]="currentProduct.name"
-          name="name"
-        />
-      </div>
-
-      <div class="form-group">
-          <label for="category">Category</label>
-          <input
-            type="text"
-            class="form-control"
-            id="category"
-            [(ngModel)]="currentProduct.category"
-            name="category"
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="price">Price</label>
-          <input
-            type="text"
-            class="form-control"
-            id="price"
-            [(ngModel)]="currentProduct.price"
-            name="price"
-          />
-        </div>
-        <div class="form-group">
-          <label for="stock">Stock</label>
-          <input
-            type="text"
-            class="form-control"
-            id="stock"
-            [(ngModel)]="currentProduct.stock"
-            name="stock"
-          />
-        </div>
-
-      <div class="form-group">
-        <label for="description">Description</label>
-        <input
-          type="text"
-          class="form-control"
-          id="description"
-          [(ngModel)]="currentProduct.description"
-          name="description"
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="image">image</label>
-        <input
-          type="text"
-          class="form-control"
-          id="image"
-          [(ngModel)]="currentProduct.image"
-          name="image"
-        />
-      </div>
-    </form>
-
- 
-    <button class="badge badge-danger mr-2" (click)="deleteProduct()">
-      Delete
-    </button>
-
-    <button
-      type="submit"
-      class="badge badge-success mb-2"
-      (click)="updateProduct()"
-    >
-      Update
-    </button>
-    <p>{{ message }}</p>
-  </div>
-
-  <div *ngIf="!currentProduct.id">
-    <br />
-    <p>Cannot access this Product...</p>
-  </div>
-</ng-template>
-
 
