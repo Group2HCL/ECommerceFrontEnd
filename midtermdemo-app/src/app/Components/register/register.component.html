@@ -17,7 +17,7 @@
             (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
               <div class="form-group">
                 <input type="text" class="form-control" name="username"[(ngModel)]="form.username"
-                required minlength="3" maxlength="20" #username="ngModel" id="username" placeholder="Username*"/>
+                required minlength="3" maxlength="20" #username="ngModel" id="username" placeholder="First Name*"/>
                 <div class="alert" role="alert" *ngIf="username.errors && f.submitted">
                   <div *ngIf="username.errors?.['required']">
                     Username is required
@@ -27,6 +27,16 @@
                   </div>
                   <div *ngIf="username.errors?.['maxlength']">
                     Username must be at most 20 characters
+                  </div>
+                </div>
+              </div>
+              <br/>
+              <div class="form-group">
+                <input type="text" class="form-control" name="usernameLast"[(ngModel)]="form.usernameLast" minlength="0"
+                 maxlength="50" #usernameLast="ngModel" id="usernameLast" placeholder="Last Name"/>
+                <div class="alert" role="alert" *ngIf="username.errors && f.submitted">        
+                  <div *ngIf="username.errors?.['maxlength']">
+                    Username must be at most 50 characters
                   </div>
                 </div>
               </div>

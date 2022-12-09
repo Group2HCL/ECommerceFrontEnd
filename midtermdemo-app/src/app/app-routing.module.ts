@@ -16,6 +16,7 @@ import { ProductDetailsComponentUser } from './Components/product-details-user/p
 import { ProductsListComponentUser } from './Components/products-list-user/products-list.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { OrdersComponent } from './Components/orders/orders.component';
+import { OktaCallbackComponent } from '@okta/okta-angular';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'admin/products/:id', component: ProductDetailsComponent },
   { path: 'add', component: AddProductComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
+  {path: 'login/callback', component: OktaCallbackComponent},
+  { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login/register', redirectTo: 'register'},
   { path: 'register/login', redirectTo: 'login'},
