@@ -8,7 +8,7 @@ import { CartService } from 'src/app/Services/cart.service';
 })
 export class CheckoutComponent implements OnInit {
 
-
+  cartSubtotal = this.cartService.totalPrice
   paymentHandler: any = null;
 
   constructor(private cartService: CartService) { }
