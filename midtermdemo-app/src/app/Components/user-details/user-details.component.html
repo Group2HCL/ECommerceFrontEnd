@@ -19,7 +19,7 @@
         <label><strong> Admin Rights: </strong></label>
       </div> -->
 
-    <a class="badge badge-warning" routerLink="/users/{{ currentUser.id }}">
+    <a class="badge badge-warning" routerLink="{{ currentUser.id }}">
       Edit
     </a>
   </div>
@@ -32,7 +32,7 @@
 
 <ng-template #editable>
   <br>
-  <a href = "/users"> &emsp; Back </a>
+  <a routerLink = "/admin/users"> &emsp; Back </a>
   <div *ngIf="currentUser.id" class="edit-form">
     <h4>User</h4>
     <form>

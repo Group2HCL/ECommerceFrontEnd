@@ -73,14 +73,15 @@
           <div class="card-body border-top">
             <a routerLink="/products" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Continue Shopping </a>
             <div class="divider"></div>
-            <a routerLink="/checkout" class="btn btn-light" (click)="!emptyCart"> Checkout <i
-                class="fa fa-chevron-right"></i> </a>
+            <button class="btn btn-light" (click)="!emptyCart; onCheckout()"> <i
+              class="fa fa-lock"> </i> Continue to Secure Stripe Checkout <i
+              class="fa fa-chevron-right"></i> </button>
           </div>
           <br>
         </div> <!-- card.// -->
 
         <div class="alert alert-success mt-3">
-          <p class="icontext"><i class="icon text-success fa fa-truck-fast"></i> Spend $100 or more to qualify for free
+          <p class="icontext"><i class="icon text-success fa fa-truck-fast"></i>  Spend $100 or more to qualify for free
             shipping! </p>
         </div>
 

@@ -22,8 +22,12 @@
     "@angular/router": "^14.2.0",
     "@okta/okta-angular": "^6.0.0",
     "@okta/okta-auth-js": "^7.1.1",
+    "@stripe/stripe-js": "^1.35.0",
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
     "rxjs": "~7.5.0",
+    "stripe": "^10.7.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
