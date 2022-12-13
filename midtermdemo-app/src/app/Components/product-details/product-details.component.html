@@ -25,7 +25,7 @@
         {{ currentProduct.image }}
       </div>
 
-      <a class="badge badge-warning" routerLink="/products/{{ currentProduct.id }}">
+      <a class="btn btnhov btn-sm btn-outline-secondary" routerLink="/admin/products/{{ currentProduct.id }}">
         Edit
       </a>
   </div>
@@ -74,11 +74,11 @@
     </form>
 
     <div>
-      <button class="badge badge-danger mr-2" (click)="deleteProduct()">
+      <button class="btn btnhov btn-sm btn-danger" (click)="deleteProduct()">
         Delete
       </button>
 
-      <button type="submit" class="badge badge-success mb-2" (click)="updateProduct()">
+      <button type="submit" class="btn btnhov btn-sm btn-success" (click)="updateProduct()">
         Update
       </button>
       <p class="text-sucess">{{ message }}</p>

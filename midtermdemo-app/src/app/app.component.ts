@@ -18,7 +18,7 @@ import { CartItem } from './Models/cartitem.model';
 })
 export class AppComponent implements OnInit {
   title = 'midtermdemo-app';
-  private roles: string[] = [];
+  private roles: string[] = this.user?.roles;
   isLoggedIn = false;
 
   showAdminBoard = false;

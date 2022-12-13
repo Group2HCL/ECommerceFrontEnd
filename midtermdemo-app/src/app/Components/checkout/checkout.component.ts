@@ -8,9 +8,8 @@ import { CartService } from 'src/app/Services/cart.service';
 })
 export class CheckoutComponent implements OnInit {
 
-
+  cartSubtotal = this.cartService.totalPrice
   paymentHandler: any = null;
-  cartSubtotal: number = 0;
   itemQuantity: number = 0; 
 
 
@@ -24,7 +23,7 @@ export class CheckoutComponent implements OnInit {
 
   updateCartStatus() {
     // subscribe to the cart totalPrice
-    this.cartService.totalPrice.subscribe((data) => (this.cartSubtotal = data));
+    //this.cartService.totalPrice.subscribe((data: number) => (this.cartSubtotal = data));
     // subscribe to the cart totalQuantity
     this.cartService.totalQuantity.subscribe((data) => (this.itemQuantity = data));
 

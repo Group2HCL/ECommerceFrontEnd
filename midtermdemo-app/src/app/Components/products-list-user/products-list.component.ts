@@ -51,6 +51,7 @@ export class ProductsListComponentUser implements OnInit {
   }
 
   removeAllProducts(): void {
+  if(confirm("Are you sure you want to delete the entire inventory?")){
     this.productsService.deleteAll()
       .subscribe({
         next: (res) => {
@@ -59,6 +60,7 @@ export class ProductsListComponentUser implements OnInit {
         },
         error: (e) => console.error(e)
       });
+    }
   }
 
   searchName(): void {
