@@ -30,7 +30,6 @@ app.post("/checkout", async (req, res, next) => {
         });
 
         res.status(200).json(session);
-        console.log(JSON.stringify(session));
 
     } catch (error) {
         next(error);
