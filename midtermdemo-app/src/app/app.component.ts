@@ -9,6 +9,7 @@ import { CartService } from './Services/cart.service';
 import { TokenStorageService } from './Services/token-storage.service';
 import { UsersService } from './Services/users1.service';
 import { Cart } from './Models/cart.model';
+import { CartItem } from './Models/cartitem.model';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +26,7 @@ export class AppComponent implements OnInit {
   username!: Observable<string>;
   cartQty?: Subject<number> = this.cartService.totalQuantity;
   emptyCart: boolean = false;
+  cart: CartItem[] = this.cartService.cartItems;
 
 
   constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth, private userService: UsersService, private cartService: CartService, private tokenStorage: TokenStorageService, private router: Router, private oktaAuthStateService: OktaAuthStateService) { }
@@ -42,6 +44,8 @@ export class AppComponent implements OnInit {
         this.showAdminBoard = true;
       }
     });
+    this.cart = this.cartService.cartItems
+
 
   }
 

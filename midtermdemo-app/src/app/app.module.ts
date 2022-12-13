@@ -22,6 +22,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import{MatInputModule} from '@angular/material/input';
 import{ MatDialogModule } from '@angular/material/dialog';
+import {MatMenuModule } from '@angular/material/menu';
 
 import { authInterceptorProviders } from './Helper/auth.interceptor';
 import { CartComponent } from './Components/cart/cart.component';
@@ -74,6 +75,7 @@ const oktaAuth = new OktaAuth(config);
     MatDialogModule,
     ReactiveFormsModule,
     OktaAuthModule,
+    MatMenuModule
   ],
   providers: [authInterceptorProviders,{provide: OKTA_CONFIG, useValue:{oktaAuth}}],
   bootstrap: [AppComponent]
