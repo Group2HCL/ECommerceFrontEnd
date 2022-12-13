@@ -25,15 +25,17 @@ app.post("/checkout", async (req, res, next) => {
                   quantity: item.quantity,
                 })),
             mode: "payment",
-            success_url: "http://localhost:4242/success.html",
+            success_url: "http://localhost:4242/success",
             cancel_url: "http://localhost:4242/cancel.html",
         });
 
         res.status(200).json(session);
+        console.log(JSON.stringify(session));
 
     } catch (error) {
         next(error);
     }
 });
+
 
 app.listen(4242, () => console.log("App is running on 4242"));

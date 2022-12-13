@@ -50,6 +50,16 @@ a {
 	text-align: center;
 	display: block;
 }
+.logo-row{ text-align: center;
+margin: auto }
+
+.right-nav{
+        position: absolute;
+        top: 0;
+        right: 0;
+		margin: 20px;
+
+}
 
 .main-nav a {
 	color: #656565;
