@@ -29,7 +29,7 @@ export class ProductDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private cartService:CartService) { }
-
+    
   ngOnInit(): void {
    
     if (!this.viewMode) {
@@ -63,11 +63,6 @@ export class ProductDetailsComponent implements OnInit {
       });
   }
 
-  addProduct(id: string): void {
-    console.log("Adding item " + this.currentProduct.id)
-    this.cartService.addToCart(this.currentProduct.id)
-
-  }
 
   deleteProduct(): void {
     this.productService.delete(this.currentProduct.id)
@@ -80,4 +75,7 @@ export class ProductDetailsComponent implements OnInit {
       });
   }
 
+  back() {
+    this.router.navigateByUrl('/products');
+  }
 }

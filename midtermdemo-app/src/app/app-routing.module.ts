@@ -16,14 +16,17 @@ import { ProductDetailsComponentUser } from './Components/product-details-user/p
 import { ProductsListComponentUser } from './Components/products-list-user/products-list.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { OrdersComponent } from './Components/orders/orders.component';
+import { OktaCallbackComponent } from '@okta/okta-angular';
+import { CheckoutComponent } from './Components/checkout/checkout.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'products', component: ProductsListComponent },
-  { path: 'products/:id', component: ProductDetailsComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'admin/products', component: ProductsListComponent },
+  { path: 'admin/products/:id', component: ProductDetailsComponent },
   { path: 'add', component: AddProductComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
+  {path: 'login/callback', component: OktaCallbackComponent},
+  { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login/register', redirectTo: 'register'},
   { path: 'register/login', redirectTo: 'login'},
@@ -31,12 +34,13 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'user', component: BoardUserComponent },
   { path: 'admin', component: BoardAdminComponent },
-  {path: 'users', component: UserListComponent },
-  {path: 'users/:id', component: UserDetailsComponent},
-  {path: 'productsU', component: ProductsListComponentUser},
-  {path: 'productsU/:id', component: ProductDetailsComponentUser},
+  {path: 'admin/users', component: UserListComponent },
+  {path: 'admin/users/:id', component: UserDetailsComponent},
+  {path: 'products', component: ProductsListComponentUser},
+  {path: 'products/:id', component: ProductDetailsComponentUser},
   {path: 'cart', component: CartComponent},
-  {path: 'orders', component: OrdersComponent}
+  {path: 'orders', component: OrdersComponent},
+  {path: 'checkout', component: CheckoutComponent}
 ];
 
 @NgModule({

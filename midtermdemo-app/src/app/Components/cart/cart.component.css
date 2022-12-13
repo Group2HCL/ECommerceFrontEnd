@@ -1,0 +1,36 @@
+.img-sm {
+    width:75px;
+    height:75px
+}
+
+th{
+    text-align: center;
+}
+
+td {
+    text-align: center;
+    padding: 10px 
+}
+.section {
+    position: relative;
+    left: 10%;
+    width: 125px
+}
+
+.btn {
+    background-color: #57bbc1;
+    color: #ffffff;
+    border-color: #499ca0
+}
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+
+.spacing{
+    text-align: center;
+    width: 700px;
+}
+

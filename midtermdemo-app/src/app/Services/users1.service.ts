@@ -5,6 +5,7 @@ import {Users} from '../Models/users1.model';
 
 const baseUrl = 'http://localhost:8181/api/User/users';
 const rolesUrl = 'http://localhost:8181/api/roles'
+const reduceUrl='http://localhost:8181/api/User'
 
 
 @Injectable({
@@ -40,6 +41,8 @@ export class UsersService {
     deleteAll(): Observable<any> {
         return this.http.delete(baseUrl);
     }
+
+    
 
     findByName(name: any): Observable<Users[]> {
         return this.http.get<Users[]>(`${baseUrl}?name=${name}`);
