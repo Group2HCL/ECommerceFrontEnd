@@ -20,7 +20,7 @@ import { OktaCallbackComponent } from '@okta/okta-angular';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'admin/products', component: ProductsListComponent },
   { path: 'admin/products/:id', component: ProductDetailsComponent },
   { path: 'add', component: AddProductComponent },

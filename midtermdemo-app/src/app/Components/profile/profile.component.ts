@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { OKTA_AUTH } from '@okta/okta-angular';
+import OktaAuth from '@okta/okta-auth-js';
 import { map } from 'rxjs';
 import { Users } from 'src/app/Models/users1.model';
 import { AuthService } from 'src/app/Services/auth.service';
@@ -18,6 +20,13 @@ export class ProfileComponent implements OnInit {
     username: '',
     email: '',
     password: '',
+    address:{
+      street1:'',
+      street2:'',
+      city:'',
+      state:'',
+      zipCode:0
+    }
   };
 
   updatePasswordForm!: FormGroup;
@@ -28,8 +37,9 @@ export class ProfileComponent implements OnInit {
   message = '';
   isMatching = false;
 
-
-  constructor(private token: TokenStorageService, private auth: AuthService, private userService: UsersService, private passwordService: PasswordServiceService, private formBuilder: FormBuilder) { }
+  //The password system needs to be ripped out and replaced with a link to okta, this should have address adding capabilities
+  //buttons and card design needs to be updated
+  constructor(@Inject(OKTA_AUTH)private oktaAuth:OktaAuth, private token: TokenStorageService, private auth: AuthService, private userService: UsersService, private passwordService: PasswordServiceService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.getUser(this.token.getUser().id);
@@ -64,7 +74,9 @@ export class ProfileComponent implements OnInit {
           console.log(res);
         }
       });
-  }
+     }
+
+ 
 
 
   updatePassword(): void {

@@ -24,8 +24,32 @@
               <label for="email">Email</label>
               <input type="text" class="form-control" id="email" [(ngModel)]="userProfile.email" name="email" />
             </div>
-          </form>
 
+            <div class="form-group">
+              <label for="street1">Street</label>
+              <input type="text" class="form-control" id="street1" [(ngModel)]="userProfile.address.street1" name="Street Address" />
+            </div>
+
+            <div class="form-group">
+              <label for="street2">Street 2</label>
+              <input type="text" class="form-control" id="street2" [(ngModel)]="userProfile.address.street2" name="addn'l Street address" />
+            </div>
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" class="form-control" id="city" [(ngModel)]="userProfile.address.city" name="city" />
+            </div>
+            
+            <div class="form-group">
+              <label for="state">State</label>
+              <input type="text" class="form-control" id="state" [(ngModel)]="userProfile.address.state" name="state" />
+            </div>
+
+            <div class="form-group">
+              <label for="zipCode">Zipcode</label>
+              <input type="text" class="form-control" id="zipCode" [(ngModel)]="userProfile.address.zipCode" name="zipcode" />
+            </div>
+            
+          </form>
           <br>
           <button class="badge mb-2  " style="width: 150px; float: none" type="submit" (click)="updateUser()"> Save
             Changes

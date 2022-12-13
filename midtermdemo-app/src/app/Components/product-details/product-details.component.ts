@@ -65,6 +65,7 @@ export class ProductDetailsComponent implements OnInit {
 
 
   deleteProduct(): void {
+    if(confirm("Are you sure you want to delete entire inventory?")){
     this.productService.delete(this.currentProduct.id)
       .subscribe({
         next: (res) => {
@@ -74,6 +75,7 @@ export class ProductDetailsComponent implements OnInit {
         error: (e) => console.error(e)
       });
   }
+}
 
   back() {
     this.router.navigateByUrl('/products');

@@ -43,6 +43,7 @@ export class UserListComponent implements OnInit {
   }
 
   removeAllUsers(): void {
+  if(confirm("Are you sure you want to delete all users?")){  
     this.userService.deleteAll()
       .subscribe({
         next: (res) => {
@@ -51,6 +52,7 @@ export class UserListComponent implements OnInit {
         },
         error: (e) => console.error(e)
       });
+    }
   }
 
   searchName(): void {

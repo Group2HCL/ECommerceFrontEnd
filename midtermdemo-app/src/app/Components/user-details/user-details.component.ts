@@ -81,6 +81,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   deleteUser(): void {
+    if(confirm("Are you sure you want to delete this User?")){
     this.userService.delete(this.currentUser.id)
       .subscribe({
         next: (res) => {
@@ -90,5 +91,6 @@ export class UserDetailsComponent implements OnInit {
         error: (e) => console.error(e)
       });
   }
+}
 
 }
