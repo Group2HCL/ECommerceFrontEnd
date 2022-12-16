@@ -23,14 +23,13 @@
           is a service - which requires immediate human - intervention.</li>
       </ul>
       <br>
-      <a class="btn btn-lg" href="products" role="button" *ngIf="isLoggedIn"> Browse Products</a>
+      <a class="btn btn-lg" routerlink = "/products" role="button" *ngIf="isLoggedIn"> Browse Products</a>
 
 
       <br />
 
-      <a href="/register" routerLink="register" class="btn btn-info" *ngIf="!isLoggedIn">Sign Up</a>
-      <br /><br />
-      <a href="login" class="btn btn-info" *ngIf="!isLoggedIn">Login</a>
+  
+      <a href="login" class="btn btn-info" *ngIf="!isLoggedIn">Get Started</a>
 
     </header>
 

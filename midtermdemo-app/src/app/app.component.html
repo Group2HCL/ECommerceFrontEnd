@@ -6,16 +6,21 @@
 
       <div>
         <button [matMenuTriggerFor]="menu"> <i class="fa-solid fa-cart-shopping">
-          </i> <span class='badge badge-warning' id='lblCartCount'> {{cartQty | async }}
-          </span> </button>
-<!-- === REPOSITION THE DROPDOWN -->
+          </i> <span class='badge badge-warning' id='lblCartCount' *ngIf="this.cart.length > 0 "> {{cartQty | async }}
+          </span>
+        </button>
         <mat-menu #menu="matMenu" yPosition="below" xPosition="before">
-          <div *ngFor="let product of this.cart; let i = index">
-            <img style="width:50px" src = "{{this.cart[i].imageUrl}}"> 
-            {{this.cart[i].name}} x {{this.cart[i].quantity ?? 0}} 
+          <div *ngIf="this.cart.length < 1"> Your cart is empty! </div>
+          <div class="p-3 divide-y justify-between">
+            <div *ngFor=" let product of this.cart; let i=index">
+              <img style="width:50px" src="{{this.cart[i].imageUrl}}">
+              {{this.cart[i].name}} x {{this.cart[i].quantity ?? 0}}
             </div>
-          <hr>
-          <a routerLink="cart" class="nav-link"> Go to Cart <i class="fa fa-arrow-right"> </i></a>
+            <a routerLink="cart" class="nav-link" *ngIf="this.cart.length >0">
+              <hr>
+              Go to Cart <i class="fa fa-arrow-right"> </i>
+            </a>
+          </div>
         </mat-menu>
       </div>
 
@@ -71,8 +76,5 @@
       </li>
     </ul>
   </h1>
-
-
-
 </header>
 <router-outlet></router-outlet>

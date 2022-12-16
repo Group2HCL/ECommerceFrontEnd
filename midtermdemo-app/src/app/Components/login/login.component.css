@@ -5,8 +5,9 @@ body, html {
 	font-family: 'Dosis', sans-serif;
 }
 
+
 btn {
-	border-radius: 0
+	border-radius: 5px
 }
 
 .btn:focus, .btn:active, .btn.active, .btn:active:focus {
@@ -17,7 +18,7 @@ btn {
 
 
 .btn-larger {
-	padding: 15px 40px !important;
+	padding: 15px 30px !important;
 	border:2px solid #5fcacf !important;;
 	border-radius: 0px !important;;
 	text-transform: uppercase;

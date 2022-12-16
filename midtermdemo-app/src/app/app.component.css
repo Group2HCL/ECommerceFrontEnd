@@ -3,6 +3,10 @@
 	box-sizing: border-box;
 }
 
+::ng-deep .mat-menu-content {
+	margin:20px;
+}
+
 body {
 
 	font-family: 'Arial', sans-serif;

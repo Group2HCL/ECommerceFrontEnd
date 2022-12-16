@@ -71,13 +71,16 @@
             name="image"
           />
         </div>
-  
-        <button (click)="saveProduct()" class="btn btn-success">Submit</button>
+
+        <button class = "btn btn-warning" (click) = back()> Back </button>
+        
+        <button (click)= "saveProduct()" class="btn btn-success">Submit</button>
       </div>
   
       <div *ngIf="submitted">
-        <h4 class="text-success">Product was added successfully!</h4>
-        <button class="btn btn-success" style = "color:white"><a href = "/admin/products"> Return </a></button>
+        <h4 class="alert alert-success">Product was added successfully!</h4>
+        <button class="btn btn-success" style = "color:white" (click) = back()> Return </button>
       </div>
     </div>
   </div>
+  
