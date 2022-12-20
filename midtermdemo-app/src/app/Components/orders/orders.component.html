@@ -13,3 +13,23 @@
         <th scope="col" class="text-right" width="200"> </th>
       </tr>
     </thead>
+  </table>
+    <mat-accordion>
+      <mat-expansion-panel  hideToggle> <!--*ngFor="let product of this.products; let i = index"-->
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+                  Products                 <!-- {{this.products[i].name}}-->
+          </mat-panel-title>
+          <mat-panel-description>
+                   List of products                         <!-- {{this.products[i].description}}-->
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div>
+          <div>{{this.products[this.pageIndex].name}}</div>
+          <div><img src={{this.products[this.pageIndex].image}} class="img-sm"></div>
+        </div>
+        <mat-paginator (page)="handlePageEvent($event)" [length]="3" [hidePageSize]="true" [pageSize]="1" aria-label="Select page">
+        </mat-paginator>
+      </mat-expansion-panel>      
+    </mat-accordion>
+    

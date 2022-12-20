@@ -18,6 +18,7 @@ import { CartComponent } from './Components/cart/cart.component';
 import { OrdersComponent } from './Components/orders/orders.component';
 import { OktaCallbackComponent } from '@okta/okta-angular';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
+import { OrderSuccessComponent } from './Components/order-success/order-success.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -40,7 +41,8 @@ const routes: Routes = [
   {path: 'products/:id', component: ProductDetailsComponentUser},
   {path: 'cart', component: CartComponent},
   {path: 'orders', component: OrdersComponent},
-  {path: 'checkout', component: CheckoutComponent}
+  {path: 'checkout', component: CheckoutComponent},
+  {path: 'ordersuccess', component: OrderSuccessComponent}
 ];
 
 @NgModule({

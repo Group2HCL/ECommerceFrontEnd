@@ -36,7 +36,7 @@ export class CartComponent implements OnInit {
 
 
   ngOnInit(): void {
-
+    window.sessionStorage.removeItem("order")
     this.retrieveProducts
     this.cart = this.cartService.cartItems
     console.log(this.cart)
@@ -46,6 +46,7 @@ export class CartComponent implements OnInit {
 
   onCheckout(): void {
     console.log(this.cart);
+    this.orderService.setStandingOrder(this.cart);
     //Sends the JSON obj items(key): cart (value)
     this.http.post('http://localhost:4242/checkout',{ 
       items: this.cart

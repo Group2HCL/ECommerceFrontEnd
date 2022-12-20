@@ -22,16 +22,17 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import{MatInputModule} from '@angular/material/input';
 import{ MatDialogModule } from '@angular/material/dialog';
-
 import { authInterceptorProviders } from './Helper/auth.interceptor';
 import { CartComponent } from './Components/cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrdersComponent } from './Components/orders/orders.component';
-
 import { CheckoutComponent } from './Components/checkout/checkout.component';
-
 import {OktaAuth} from '@okta/okta-auth-js';
 import { OktaAuthModule, OKTA_CONFIG } from '@okta/okta-angular';
+import { OrderSuccessComponent } from './Components/order-success/order-success.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 const config = {
   issuer: 'https://dev-15967023.okta.com/oauth2/default',
   clientId: '0oa7g3ezwtgJdUgM05d7',
@@ -58,7 +59,8 @@ const oktaAuth = new OktaAuth(config);
     ProductsListComponentUser,
     CartComponent,
     OrdersComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    OrderSuccessComponent,
   ],
 
   imports: [
@@ -74,6 +76,8 @@ const oktaAuth = new OktaAuth(config);
     MatDialogModule,
     ReactiveFormsModule,
     OktaAuthModule,
+    MatExpansionModule,
+    MatPaginatorModule
   ],
   providers: [authInterceptorProviders,{provide: OKTA_CONFIG, useValue:{oktaAuth}}],
   bootstrap: [AppComponent]

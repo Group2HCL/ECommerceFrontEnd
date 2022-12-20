@@ -17,10 +17,10 @@ import { Cart } from './Models/cart.model';
 })
 export class AppComponent implements OnInit {
   title = 'midtermdemo-app';
-  private roles: string[] = this.user?.roles;
+  private roles:string[]=[]
   isLoggedIn = false;
 
-  showAdminBoard = false;
+  showAdminBoard:Subject<boolean>=new Subject();
   user?: Users;
   username!: Observable<string>;
   cartQty?: Subject<number> = this.cartService.totalQuantity;
@@ -35,13 +35,15 @@ export class AppComponent implements OnInit {
       map((authState: AuthState) => authState.idToken?.claims.name ?? ''));
     this.isLoggedIn = !!this.tokenStorage.getToken();
     this.user = this.tokenStorage.getUser();
-    this.roles = this.user?.roles
-    console.log('does this evaluate correctly? ' + this.user?.roles.includes('ROLE_ADMIN'));
-    this.roles.forEach((k, v) => {
-      if ((k) = 'ROLE_ADMIN') {
-        this.showAdminBoard = true;
-      }
-    });
+    try{  
+      this.roles= this.tokenStorage.extractRoles(this.user!)
+    }catch{this.tokenStorage.setAdminStatus(false)}
+    console.log('does this evaluate correctly? '+ this.roles.includes('"ROLE_ADMIN"'));
+
+
+
+    
+    this.showAdminBoard.subscribe((x)=> this.tokenStorage.isAdmin.next(x))
 
   }
 
