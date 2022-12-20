@@ -1,6 +1,7 @@
 import {Component } from '@angular/core';
 import { Products } from 'src/app/Models/products.model';
 import { ProductsService } from 'src/app/Services/products.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-add-product',
@@ -18,7 +19,8 @@ export class AddProductComponent {
     };
     submitted = false;
 
-    constructor(private productsService: ProductsService) { }
+    constructor(private productsService: ProductsService,     private router: Router,
+        ) { }
 
     saveProduct(): void {
         const data = {
@@ -51,4 +53,8 @@ export class AddProductComponent {
             image: ''
         };
     }
+
+    back() {
+        this.router.navigateByUrl('/admin/products');
+      }
 }

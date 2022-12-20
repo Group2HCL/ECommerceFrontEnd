@@ -3,6 +3,10 @@
 	box-sizing: border-box;
 }
 
+::ng-deep .mat-menu-content {
+	margin:20px;
+}
+
 body {
 
 	font-family: 'Arial', sans-serif;
@@ -33,6 +37,11 @@ a {
 	text-decoration: none;
 }
 
+button {
+	background-color: #bae6e8;
+	border: none;
+}
+
 .logo {
 	margin: 0;
 	font-size: 1.45em;
@@ -49,6 +58,16 @@ a {
 	text-transform: uppercase;
 	text-align: center;
 	display: block;
+}
+.logo-row{ text-align: center;
+margin: auto }
+
+.right-nav{
+        position: absolute;
+        top: 0;
+        right: 0;
+		margin: 20px;
+
 }
 
 .main-nav a {

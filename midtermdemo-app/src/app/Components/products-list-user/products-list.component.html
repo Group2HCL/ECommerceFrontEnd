@@ -3,49 +3,132 @@
   <p class="lead text-muted"> Extensive list of the latest products. New inventory added daily! </p>
 </section>
 
-<div class="container col-md-5 input-group" style="width: 50%">
-  <input type="text" style="height: 42px" class="form-control" placeholder="Search by product name"
-    [(ngModel)]="name" />
-  <span class="input-group-addon">
-    <button class="btn btn-outline-secondary fa fa-search" (click)="searchName()"> </button>
-  </span>
-</div>
 
-<div *ngFor=" let product of products; let i=index" [class.active]="i == currentIndex">
-  <div class="col-md-3">
-    <div class="card mb-4 border">
-      <img class="card-img-top" src={{product.image}}>
-      <div class="card-body">
-        <ul class="list-group">
-          <li class="list-group-item card-border">
-            <p class="card-text"> <strong> {{product.name}} </strong> </p>
-          </li>
-          <br>
-          <div> {{product.price | currency: 'USD'}} </div>
-          <br>
-          <div class="btn-group">
-            <button type="button" class="btn btnhov btn-sm btn-outline-secondary"
-              (click)="setActiveProduct(product, i); openPopup()">
-              View More</button>
-            <!-- (click)="" -->
-          </div>
-          <!-- MODAL POPUP -->
-          <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <button type="button" class="btnhov close" (click)="closePopup()"> <i class ="fa-solid fa-x"> </i> 
-                </button>
-                <br>  
-                <div >
-                  <app-product-details-user [viewMode]="true" [currentProduct]="currentProduct">
-                  </app-product-details-user>
-                </div>
-                <div class="modal-footer"></div>
-              </div>
+<hr>
+
+
+<mat-drawer-container [autosize]="true">
+
+  <!--=== SIDEBAR NAV -->
+  <mat-drawer mode="side" opened class="p-6">
+    <!-- === CATEGORIES  -->
+    <app-categories> </app-categories>
+  </mat-drawer>
+
+
+  <mat-drawer-content>
+
+
+    <!-- ==== SEARCH BAR ==== -->
+    <mat-card> 
+    <div class="container col-md-5 input-group" style="width: 50%">
+      <input type="text" style="height: 42px" class="form-control" placeholder="Search by product name"
+        [(ngModel)]="name" />
+      <span class="input-group-addon">
+        <button class="btn btn-outline-secondary fa fa-search" (click)="searchName()"> </button>
+      </span>
+    </div>
+  </mat-card>
+
+    <!-- === SORTING === -->
+    <mat-card style="height: 60px">
+      <div class="justify-between">
+        <div>
+          <button mat-button [matMenuTriggerFor]="sortByMenu">
+            Sort By Name {{sort}}
+          </button>
+          <mat-menu #sortByMenu="matMenu">
+            <button (click)="onSortUpdated(': Ascending')" mat-menu-item> Ascending </button>
+            <button (click)="onSortUpdated(' : Descending')" mat-menu-item> Descending </button>
+          </mat-menu>
+        </div>
+        <div class="flex items-center">
+          <button>
+            <mat-icon> view_list </mat-icon>
+          </button>
+          <button>
+            <mat-icon> view_module </mat-icon>
+          </button>
+          <button>
+            <mat-icon> view_comfy </mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-card>
+    <!-- === PRODUCT CATALOG 
+    <mat-grid-list gutterSize="16" [cols]="cols" [rowHeight]="rowHeight">
+      <mat-grid-tile>
+        <mat-card>
+          <div *ngFor=" let product of products; let i=index" [class.active]="i == currentIndex">
+            <img style="height: 200px" src={{product.image}}>
+            <div>
+              <h5> {{product.category}} </h5>
+              <p> {{product.name }} </p>
+              <div class="justify-between"> </div>
+              <span> {{ product.price | currency:'USD' }} </span>
+              <span class="btn-group"> <button type="button" class="btn btnhov btn-sm btn-outline-secondary"
+                  (click)="setActiveProduct(product, i); openPopup()">
+                  View More</button> </span>
             </div>
           </div>
-        </ul>
+        </mat-card>
+
+        <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <button type="button" class="btnhov close" (click)="closePopup()"> <i class="fa-solid fa-x">
+                </i>
+              </button>
+              <br>
+              <div>
+                <app-product-details-user [viewMode]="true" [currentProduct]="currentProduct">
+                </app-product-details-user>
+              </div>
+              <div class="modal-footer"></div>
+            </div>
+          </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+    2.0 -->
+
+    <!-- === PRODUCT CATALOG -->
+    <div *ngFor=" let product of products; let i=index" [class.active]="i == currentIndex">
+      <div class="col-md-3 container">
+        <div class="card border">
+          <img class="card-img-top" src={{product.image}}>
+          <div class="card-body">
+            <ul class="list-group">
+              <li class="list-group-item card-border">
+                <p class="card-text"> <strong> {{product.name}} </strong> </p>
+              </li>
+              <br>
+              <div> {{product.price | currency: 'USD'}} </div>
+              <br>
+              <div class="btn-group">
+                <button type="button" class="btn btnhov btn-sm btn-outline-secondary"
+                  (click)="setActiveProduct(product, i); openPopup()">
+                  View More</button>
+              </div>
+
+              <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <button type="button" class="btnhov close" (click)="closePopup()"> <i class="fa-solid fa-x"> </i>
+                    </button>
+                    <br>
+                    <div>
+                      <app-product-details-user [viewMode]="true" [currentProduct]="currentProduct">
+                      </app-product-details-user>
+                    </div>
+                    <div class="modal-footer"></div>
+                  </div>
+                </div>
+              </div>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+  </mat-drawer-content>
+</mat-drawer-container>

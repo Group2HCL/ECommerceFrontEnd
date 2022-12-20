@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'admin/products/:id', component: ProductDetailsComponent },
   { path: 'add', component: AddProductComponent },
   { path: 'home', component: HomeComponent },
-  {path: 'login/callback', component: OktaCallbackComponent},
+   {path: 'login/callback', component: OktaCallbackComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login/register', redirectTo: 'register'},

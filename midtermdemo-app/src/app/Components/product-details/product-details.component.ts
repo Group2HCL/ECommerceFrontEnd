@@ -63,9 +63,20 @@ export class ProductDetailsComponent implements OnInit {
       });
   }
 
-
+  deleteAll(): void {
+    if(confirm("Are you sure you want to delete all inventory?")){
+      this.productService.deleteAll()
+        .subscribe({
+          next: (res) => {
+            console.log(res);
+            this.router.navigate(['/products']);
+          },
+          error: (e) => console.error(e)
+        });
+    }
+  }
   deleteProduct(): void {
-    if(confirm("Are you sure you want to delete entire inventory?")){
+    if(confirm("Are you sure you want to delete " + this.currentProduct.name +"?")){
     this.productService.delete(this.currentProduct.id)
       .subscribe({
         next: (res) => {
@@ -78,6 +89,6 @@ export class ProductDetailsComponent implements OnInit {
 }
 
   back() {
-    this.router.navigateByUrl('/products');
+    this.router.navigateByUrl('admin/products');
   }
 }

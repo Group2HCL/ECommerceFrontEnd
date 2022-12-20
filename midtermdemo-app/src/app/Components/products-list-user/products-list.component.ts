@@ -5,6 +5,8 @@ import { CartService } from 'src/app/Services/cart.service';
 import { ProductsService } from 'src/app/Services/products.service';
 import { ProductDetailsComponentUser } from '../product-details-user/product-details.component';
 
+const ROWS_HEIGHT: {[id:number]: number} = {1: 400, 3: 335, 4: 350}
+
 @Component({
   selector: 'app-products-list-user',
   templateUrl: './products-list.component.html',
@@ -17,6 +19,13 @@ export class ProductsListComponentUser implements OnInit {
   currentIndex = -1;
   name = '';
   cartProductList: Products[] = this.cartService.cartItems;
+  
+  sort = '';
+  category: string | undefined;
+  cols: number = 3;
+  rowHeight = ROWS_HEIGHT[this.cols];
+  
+
 
 
 
@@ -26,6 +35,21 @@ export class ProductsListComponentUser implements OnInit {
     this.retrieveProducts();
     this.cartProductList = this.cartService.cartItems;
   }
+
+  onSortUpdated(newSort: string): void {
+    this.sort = newSort;
+  }
+
+  onColumnsCountChange(numCols:number): void {
+    this.cols = numCols;
+    this.rowHeight = ROWS_HEIGHT[this.cols];
+
+  }
+
+  onShowCategory(newCategory:string): void {
+    this.category = newCategory;
+  }
+
 
 
   retrieveProducts(): void {

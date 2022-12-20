@@ -36,4 +36,5 @@ app.post("/checkout", async (req, res, next) => {
     }
 });
 
+
 app.listen(4242, () => console.log("App is running on 4242"));

@@ -24,6 +24,9 @@ export class ProductDetailsComponentUser implements OnInit {
     id: 0,
     quantity: 0
   };
+
+  isPresent: boolean = false;
+
   message = '';
   addSuccess = false;
 
@@ -34,7 +37,11 @@ export class ProductDetailsComponentUser implements OnInit {
     protected cartService: CartService) { }
 
   ngOnInit(): void {
-    
+
+    if (this.cartService.cartItems && this.cartService.cartItems.includes(this.currentProduct)) {
+      this.isPresent = true;
+    }
+
     if (!this.viewMode) {
       this.message = '';
       this.getProduct(this.route.snapshot.params["id"]);
@@ -66,11 +73,15 @@ export class ProductDetailsComponentUser implements OnInit {
       });
   }
 
-  
+
   addProduct(id: any): void {
     this.cartService.addToCart(this.currentProduct);
-    this.addSuccess = true; 
+    this.addSuccess = true;
+    setTimeout( () => {
+      this.addSuccess = false;
+    }, 1000);
   }
+
 
   /*
   removeProduct(id: any): void{

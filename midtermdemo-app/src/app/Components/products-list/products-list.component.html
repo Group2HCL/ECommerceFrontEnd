@@ -1,7 +1,7 @@
 <div class="list row">
   <div class="col-md-8">
     <br />
-   <div class="input-group mb-3">
+    <div class="input-group mb-3">
       <!--<form class="example-form">
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Number</mat-label>
@@ -24,35 +24,34 @@
     -->
 
 
-    <div class="container col-md-5 input-group">
-      <input type="text" style="height: 42px" class="form-control" placeholder="Search by product name"
-        [(ngModel)]="name" />
-      <span class="input-group-addon">
-        <button class="btn btn-outline-secondary fa fa-search" (click)="searchName()"> </button>
-      </span>
+      <div class="container col-md-5 input-group">
+        <input type="text" style="height: 55px" class="form-control" placeholder="Search by product name"
+          [(ngModel)]="name" />
+        <span class="input-group-addon">
+          <button class="btn btn-outline-secondary fa fa-search" (click)="searchName()"> </button>
+        </span>
+      </div>
     </div>
   </div>
-</div>
-<div class="col-md-6">
-  <h4>Product List</h4>
-  <ul class="list-group">
-    <li class="list-group-item" *ngFor="let product of products; let i = index" [class.active]="i == currentIndex"
-      (click)="setActiveProduct(product, i)">
-      {{ product.name }}
-    </li>
-  </ul>
+  <div class="col-md-6">
+    <h4>Product List</h4>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let product of products; let i = index" [class.active]="i == currentIndex"
+        (click)="setActiveProduct(product, i)">
+        {{ product.name }}
+      </li>
+    </ul>
 
-  <button class="m-3 btn btn-sm btn-danger" (click)="removeAllProducts()">
-    Remove All
-  </button>
+    <button class="m-3 btn btn-danger" (click)="removeAllProducts()">
+      Delete Inventory </button>
+    <a href="/add" class="m-3 btn btn-primary">
+      Create Product </a>
+  </div>
+
+  <div class="col-md-6">
+    <app-product-details [viewMode]="true" [currentProduct]="currentProduct"></app-product-details>
+  </div>
+  <!-- <div>
   <a href="/add" class="m-3 btn btn-sm btn-primary">
     Create Product </a>
-</div>
-
-<div class="col-md-6">
-  <app-product-details [viewMode]="true" [currentProduct]="currentProduct"></app-product-details>
-</div>
-<!-- <div>
-  <a href="/add" class="m-3 btn btn-sm btn-primary">
-    Create Product </a>
-</div> --> 
+</div> -->
