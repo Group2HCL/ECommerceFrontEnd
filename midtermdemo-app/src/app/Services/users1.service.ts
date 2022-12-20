@@ -42,7 +42,9 @@ export class UsersService {
         return this.http.delete(baseUrl);
     }
 
-    
+    getUserOrders(name: String):Observable<any>{
+        return this.http.get(`${reduceUrl}+'/order/${name}`)
+    }
 
     findByName(name: any): Observable<Users[]> {
         return this.http.get<Users[]>(`${baseUrl}?name=${name}`);

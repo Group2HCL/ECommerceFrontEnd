@@ -34,18 +34,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
 import { authInterceptorProviders } from './Helper/auth.interceptor';
 import { CartComponent } from './Components/cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrdersComponent } from './Components/orders/orders.component';
-
 import { CheckoutComponent } from './Components/checkout/checkout.component';
-
 import {OktaAuth} from '@okta/okta-auth-js';
 import { OktaAuthModule, OKTA_CONFIG } from '@okta/okta-angular';
+
 import { CategoriesComponent } from './Components/categories/categories.component';
 import { ProductsGridComponent } from './Components/products-grid/products-grid.component';
+import { OrderSuccessComponent } from './Components/order-success/order-success.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
+
 const config = {
   issuer: 'https://dev-15967023.okta.com/oauth2/default',
   clientId: '0oa7g3ezwtgJdUgM05d7',
@@ -75,6 +77,8 @@ const oktaAuth = new OktaAuth(config);
     CheckoutComponent,
     CategoriesComponent,
     ProductsGridComponent,
+    OrderSuccessComponent,
+
   ],
 
   imports: [
@@ -102,6 +106,7 @@ const oktaAuth = new OktaAuth(config);
     MatTableModule,
     MatBadgeModule,
     MatSnackBarModule,
+    MatPaginatorModule
   ],
   providers: [authInterceptorProviders,{provide: OKTA_CONFIG, useValue:{oktaAuth}}],
   bootstrap: [AppComponent]
